@@ -1,15 +1,15 @@
 import * as S from "./RoundButton.styles";
 
 interface IRoundButtonProps {
+  children: string;
   type: "fill" | "dash" | "line" | "gray";
   onClick: () => void;
-  children: string;
 }
 
 export default function RoundButton({
+  children,
   type,
   onClick,
-  children,
 }: IRoundButtonProps) {
   return (
     <S.Button type={type} onClick={onClick}>

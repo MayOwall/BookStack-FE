@@ -56,8 +56,14 @@ export const Button = styled.div<IButtonProps>`
   text-align: center;
   line-height: 28px;
   letter-spacing: 1px;
+  user-select: none;
+  cursor: pointer;
+  opacity: 90%;
   transition: all ease-in 0.15s;
 
+  &:hover {
+    opacity: 100%;
+  }
   &:active {
     border: ${({ type, theme }) => {
       switch (type) {
