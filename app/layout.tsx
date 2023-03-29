@@ -3,6 +3,8 @@ import "style/reset.css";
 import "style/global.css";
 import { usePathname, useRouter } from "next/navigation";
 import { useLayoutEffect } from "react";
+import { ThemeProvider } from "@emotion/react";
+import theme from "style/theme";
 
 export default function RootLayout({
   children,
@@ -24,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <div>{children}</div>
+        <ThemeProvider theme={theme}>
+          <div>{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

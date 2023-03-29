@@ -1,3 +1,6 @@
+"use client";
+import { HomeTemplate } from "component";
+
 export default function Home() {
-  return <div>main</div>;
+  return <HomeTemplate />;
 }
