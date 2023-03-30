@@ -19,12 +19,16 @@ function Input({
 
   return (
     <S.Container>
-      {type === "label" && <S.Label fontSize={fontSize}>{label || ""}</S.Label>}
+      {type === "label" && (
+        <S.Label fontSize={fontSize} isFocus={isFocus}>
+          {label || ""}
+        </S.Label>
+      )}
       <S.Input
         value={value}
         onFocus={onInputFocus}
         onBlur={onInputBlur}
-        onChange={onChange}
+        onChange={(e) => onChange(e.target.value)}
         width={width}
         fontSize={fontSize}
         placeholder={placeholder}

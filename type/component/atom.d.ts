@@ -11,6 +11,8 @@ export interface IRoundButtonProps extends EButtonProps {
   onClick: () => void;
 }
 
+export interface ELabelProps extends EInputProps, ELineProps {}
+
 export interface EInputProps {
   width?: string;
   fontSize?: string;
@@ -24,6 +26,6 @@ export interface IInputProps extends EInputProps {
   type: "label" | "default";
   value: string;
   placeholder: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: (v: string) => void;
   label?: string;
 }
