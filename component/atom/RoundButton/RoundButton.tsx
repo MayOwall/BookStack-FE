@@ -1,19 +1,25 @@
+import { IRoundButtonProps } from "type";
 import * as S from "./RoundButton.styles";
-
-interface IRoundButtonProps {
-  children: string;
-  type: "fill" | "dash" | "line" | "gray";
-  onClick: () => void;
-}
 
 export default function RoundButton({
   children,
   type,
   onClick,
+  width,
+  height,
+  fontSize,
+  color,
 }: IRoundButtonProps) {
   return (
-    <S.Button type={type} onClick={onClick}>
-      {children}
+    <S.Button
+      type={type}
+      onClick={onClick}
+      width={width}
+      height={height}
+      fontSize={fontSize}
+      color={color}
+    >
+      <div>{children}</div>
     </S.Button>
   );
 }

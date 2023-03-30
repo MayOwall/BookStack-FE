@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation";
 import { RoundButton } from "component";
 import * as S from "./HomeTemplate.styles";
-import StackIcon from "public/StackIcon.svg";
 
 function HomeTemplate() {
   const router = useRouter();
@@ -17,14 +16,21 @@ function HomeTemplate() {
       </S.TitleStack>
       <span>독서 기록을 쌓아보세요</span>
       <S.ButtonContainer>
-        <RoundButton type="fill" onClick={() => router.push("/login")}>
-          Login
+        <RoundButton
+          type="fill"
+          onClick={() => router.push("/signin")}
+          height={"30px"}
+        >
+          Sign In
         </RoundButton>
-        <RoundButton type="line" onClick={() => router.push("/signup")}>
-          Sign up
+        <RoundButton
+          type="line"
+          onClick={() => router.push("/signup")}
+          height={"30px"}
+        >
+          Sign Up
         </RoundButton>
       </S.ButtonContainer>
-      <StackIcon fill="#FF8298" stroke="#FF8298" />
     </S.Container>
   );
 }

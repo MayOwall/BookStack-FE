@@ -13,7 +13,7 @@ const theme: Theme = {
   },
   color: {
     white: "#ffffff",
-    lightgray: "#E2E2E2",
+    lightgray: "#A5A5A5",
     darkgray: "#5A5A5A",
     black: "#212121",
     alert: "#FF3131",

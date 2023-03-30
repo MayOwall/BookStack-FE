@@ -1,19 +1,18 @@
 "use client";
 import { useState } from "react";
-import { SignupTemplate } from "component";
+import { SigninTemplate } from "component";
 
 // Input values 초기값들
-const initValue = {
+const initValues = {
   id: "",
   pw: "",
-  pwConfirm: "",
-  nickname: "",
 };
 
-export default function SignupPage() {
-  const [values, setValues] = useState(initValue);
+export default function SigninPage() {
+  const [values, setValues] = useState(initValues);
 
   // 변경된 input 값 state화
+
   const onChange = (type: string, value: string) => {
     const nextValues = {
       ...values,
@@ -23,12 +22,10 @@ export default function SignupPage() {
   };
 
   // submit button 클릭
-  const onSubmit = () => {
-    alert(JSON.stringify(values));
-  };
+  const onSubmit = () => alert(JSON.stringify(values));
 
   return (
-    <SignupTemplate
+    <SigninTemplate
       inputValues={values}
       onChange={onChange}
       onSubmit={onSubmit}
