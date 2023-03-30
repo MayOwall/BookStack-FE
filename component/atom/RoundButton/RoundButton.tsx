@@ -19,7 +19,7 @@ export default function RoundButton({
       fontSize={fontSize}
       color={color}
     >
-      {children}
+      <div>{children}</div>
     </S.Button>
   );
 }

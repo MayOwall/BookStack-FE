@@ -2,9 +2,11 @@ import { EButtonProps } from "@/type";
 import styled from "@emotion/styled";
 
 export const Button = styled.div<EButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${({ width }) => (width ? width : "100%")};
   height: ${({ height }) => (height ? height : "100%")};
-  padding: 0 10px;
   border: none;
   color: ${({ type, color, theme }) => {
     switch (type) {
@@ -35,16 +37,18 @@ export const Button = styled.div<EButtonProps>`
   background-color: ${({ type, color, theme }) => {
     return type === "fill" ? color || theme.color.black : theme.color.white;
   }};
-  font: ${({ theme }) => theme.font["small-light"]};
-  font-size: ${({ fontSize }) => fontSize || "13px"};
-  text-align: center;
-  line-height: ${({ height }) => (height ? height : "100%")};
-  letter-spacing: 1px;
+
   user-select: none;
   cursor: pointer;
   opacity: 90%;
   transition: all ease-in 0.15s;
 
+  > div {
+    position: relative;
+    top: -1px;
+    font: ${({ theme }) => theme.font["small-light"]};
+    font-size: ${({ fontSize }) => fontSize || "13px"};
+  }
   &:hover {
     opacity: 100%;
   }
