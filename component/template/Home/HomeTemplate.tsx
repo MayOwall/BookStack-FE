@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import { RoundButton } from "component";
 import * as S from "./HomeTemplate.styles";
+import StackIcon from "public/StackIcon.svg";
 
 function HomeTemplate() {
   const router = useRouter();
@@ -23,6 +24,7 @@ function HomeTemplate() {
           Sign up
         </RoundButton>
       </S.ButtonContainer>
+      <StackIcon fill="#FF8298" stroke="#FF8298" />
     </S.Container>
   );
 }
