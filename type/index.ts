@@ -7,7 +7,10 @@ import {
   IInputProps,
 } from "./component/atom";
 
-import { ISignupTemplateProps } from "./component/template";
+import {
+  ISignupTemplateProps,
+  ISigninTemplateProps,
+} from "./component/template";
 
 export type {
   EButtonProps,
@@ -17,4 +20,5 @@ export type {
   ELineProps,
   IInputProps,
   ISignupTemplateProps,
+  ISigninTemplateProps,
 };

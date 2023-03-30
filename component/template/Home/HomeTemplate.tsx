@@ -18,17 +18,17 @@ function HomeTemplate() {
       <S.ButtonContainer>
         <RoundButton
           type="fill"
-          onClick={() => router.push("/login")}
+          onClick={() => router.push("/signin")}
           height={"30px"}
         >
-          Login
+          Sign In
         </RoundButton>
         <RoundButton
           type="line"
           onClick={() => router.push("/signup")}
           height={"30px"}
         >
-          Sign up
+          Sign Up
         </RoundButton>
       </S.ButtonContainer>
     </S.Container>
