@@ -1,3 +1,15 @@
-import { EButtonProps, IRoundButtonProps } from "./component/atom";
+import {
+  EButtonProps,
+  IRoundButtonProps,
+  EInputProps,
+  ELineProps,
+  IInputProps,
+} from "./component/atom";
 
-export type { EButtonProps, IRoundButtonProps };
+export type {
+  EButtonProps,
+  IRoundButtonProps,
+  EInputProps,
+  ELineProps,
+  IInputProps,
+};

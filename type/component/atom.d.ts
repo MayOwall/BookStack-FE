@@ -10,3 +10,20 @@ export interface IRoundButtonProps extends EButtonProps {
   children: string;
   onClick: () => void;
 }
+
+export interface EInputProps {
+  width?: string;
+  fontSize?: string;
+}
+
+export interface ELineProps {
+  isFocus: boolean;
+}
+
+export interface IInputProps extends EInputProps {
+  type: "label" | "default";
+  value: string;
+  placeholder: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  label?: string;
+}
