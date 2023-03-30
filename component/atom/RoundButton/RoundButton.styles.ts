@@ -1,60 +1,44 @@
+import { EButtonProps } from "@/type";
 import styled from "@emotion/styled";
 
-interface IButtonProps {
-  type: "fill" | "dash" | "line" | "gray";
-}
-
-export const Button = styled.div<IButtonProps>`
-  width: 100%;
-  height: 30px;
+export const Button = styled.div<EButtonProps>`
+  width: ${({ width }) => (width ? width : "100%")};
+  height: ${({ height }) => (height ? height : "100%")};
   padding: 0 10px;
   border: none;
-  border: ${({ type, theme }) => {
+  color: ${({ type, color, theme }) => {
     switch (type) {
       case "fill": {
-        return `1px solid ${theme.color.white}`;
+        return theme.color.white;
+      }
+      default: {
+        return color || theme.color.black;
+      }
+    }
+  }};
+  border: ${({ type }) => {
+    switch (type) {
+      case "fill": {
+        return `none`;
       }
       case "dash": {
-        return `1px dashed ${theme.color.black}`;
+        return `1px dashed`;
       }
-      case "line": {
-        return `1px solid ${theme.color.black}`;
-      }
-      case "gray": {
-        return `1px solid ${theme.color.lightgray}`;
-      }
-    }
-  }};
-  border-radius: 15px;
-  background-color: ${({ type, theme }) => {
-    switch (type) {
-      case "fill": {
-        return theme.color.black;
-      }
-      case "dash":
       case "line":
-      case "gray": {
-        return theme.color.white;
+      default: {
+        return "1px solid";
       }
     }
   }};
-  color: ${({ type, theme }) => {
-    switch (type) {
-      case "fill": {
-        return theme.color.white;
-      }
-      case "dash":
-      case "line": {
-        return theme.color.black;
-      }
-      case "gray": {
-        return theme.color.lightgray;
-      }
-    }
+  border-radius: ${({ height }) =>
+    height ? `${Number(height.replace(/[^0-9]/g, "")) / 2}px` : "50%"};
+  background-color: ${({ type, color, theme }) => {
+    return type === "fill" ? color || theme.color.black : theme.color.white;
   }};
   font: ${({ theme }) => theme.font["small-light"]};
+  font-size: ${({ fontSize }) => fontSize || "13px"};
   text-align: center;
-  line-height: 28px;
+  line-height: ${({ height }) => (height ? height : "100%")};
   letter-spacing: 1px;
   user-select: none;
   cursor: pointer;
@@ -65,31 +49,23 @@ export const Button = styled.div<IButtonProps>`
     opacity: 100%;
   }
   &:active {
-    border: ${({ type, theme }) => {
+    border: ${({ type, color, theme }) => {
       switch (type) {
-        case "fill": {
-          return `1px solid ${theme.color.white}dd`;
-        }
         case "dash": {
-          return `1px dashed ${theme.color.black}dd`;
+          return `1px dashed ${color || theme.color.black}dd`;
         }
         case "line": {
-          return `1px solid ${theme.color.black}dd`;
-        }
-        case "gray": {
-          return `1px solid ${theme.color.darkgray}`;
+          return `1px solid ${color || theme.color.black}dd`;
         }
       }
     }};
-    background-color: ${({ type, theme }) => {
+    background-color: ${({ type, color, theme }) => {
       switch (type) {
         case "fill": {
-          return theme.color.black + "dd";
+          return color ? color + "dd" : theme.color.black + "dd";
         }
-        case "dash":
-        case "line":
-        case "gray": {
-          return theme.color.lightgray;
+        default: {
+          return theme.color.lightgray + "dd";
         }
       }
     }};
@@ -101,9 +77,6 @@ export const Button = styled.div<IButtonProps>`
         case "dash":
         case "line": {
           return theme.color.black + "dd";
-        }
-        case "gray": {
-          return theme.color.darkgray;
         }
       }
     }};
