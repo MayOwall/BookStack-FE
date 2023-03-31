@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { SignupTemplate } from "component";
+import { postSignup } from "api";
 
 // Input values 초기값들
 const initValue = {
@@ -23,8 +24,9 @@ export default function SignupPage() {
   };
 
   // submit button 클릭
-  const onSubmit = () => {
-    alert(JSON.stringify(values));
+  const onSubmit = async () => {
+    const res = await postSignup(values);
+    console.log("signup response :", res);
   };
 
   return (
