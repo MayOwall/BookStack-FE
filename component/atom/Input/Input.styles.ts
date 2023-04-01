@@ -1,4 +1,4 @@
-import { ELabelProps, EInputProps, ELineProps } from "type";
+import { ELabelProps, EInputProps, ELineProps, EAlertProps } from "type";
 import styled from "@emotion/styled";
 
 export const Container = styled.div<EInputProps>`
@@ -22,7 +22,7 @@ export const Input = styled.input<EInputProps>`
   font: ${({ theme }) => theme.font["small-light"]};
   font-size: ${({ fontSize }) => fontSize || "13px"};
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid ${({ theme }) => theme.color.lightgray};
   outline: none;
   transition: 0.2s ease-in all;
 
@@ -33,10 +33,16 @@ export const Input = styled.input<EInputProps>`
 
 export const Line = styled.div<ELineProps>`
   position: absolute;
-  bottom: -1px;
+  bottom: 16px;
   left: 0;
   width: ${({ isFocus }) => (isFocus ? "100%" : "0")};
   transition: 0.2s ease-in all;
   height: 2px;
   background-color: ${({ theme }) => theme.color.black};
+`;
+
+export const Alert = styled.small<EAlertProps>`
+  font: ${({ theme }) => theme.font["x-small-light"]};
+  color: ${({ theme }) => theme.color.alert};
+  visibility: ${({ isAlert }) => (isAlert ? "visible" : "hidden")};
 `;

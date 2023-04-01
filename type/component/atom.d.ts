@@ -22,10 +22,15 @@ export interface ELineProps {
   isFocus: boolean;
 }
 
-export interface IInputProps extends EInputProps {
+export interface EAlertProps {
+  isAlert: boolean;
+}
+
+export interface IInputProps extends EInputProps, EAlertProps {
   type: "label" | "default";
   value: string;
   placeholder: string;
+  alert: string;
   onChange: (v: string) => void;
   label?: string;
 }

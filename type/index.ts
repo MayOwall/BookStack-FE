@@ -4,6 +4,7 @@ import {
   ELabelProps,
   EInputProps,
   ELineProps,
+  EAlertProps,
   IInputProps,
 } from "./component/atom";
 
@@ -18,6 +19,7 @@ export type {
   ELabelProps,
   EInputProps,
   ELineProps,
+  EAlertProps,
   IInputProps,
   ISignupTemplateProps,
   ISigninTemplateProps,

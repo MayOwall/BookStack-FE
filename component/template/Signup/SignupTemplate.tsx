@@ -9,7 +9,6 @@ function SignupTemplate({
   onSubmit,
 }: ISignupTemplateProps) {
   const { id, pw, pwConfirm, nickname } = inputValues;
-
   return (
     <S.Container>
       <S.Header>
@@ -20,30 +19,38 @@ function SignupTemplate({
         <Input
           type="label"
           label="아이디"
-          value={id}
+          value={id.value}
+          alert="아이디를 확인해 주세요"
+          isAlert={id.isAlert}
           onChange={(v: string) => onChange("id", v)}
-          placeholder="아이디를 입력해 주세요"
+          placeholder="4글자 이상 10글자 이하"
         />
         <Input
           type="label"
           label="비밀번호"
-          value={pw}
+          value={pw.value}
+          alert="비밀번호는 8글자 이상 15글자 이하여야 합니다."
+          isAlert={pw.isAlert}
           onChange={(v: string) => onChange("pw", v)}
-          placeholder="비밀번호를 입력해 주세요"
+          placeholder="8글자 이상 15글자 이하"
         />
         <Input
           type="label"
           label="비밀번호 확인"
-          value={pwConfirm}
+          value={pwConfirm.value}
+          alert="비밀번호가 같은지 확인해 주세요"
+          isAlert={pwConfirm.isAlert}
           onChange={(v: string) => onChange("pwConfirm", v)}
           placeholder="위와 동일한 비밀번호를 입력해 주세요"
         />
         <Input
           type="label"
           label="닉네임"
-          value={nickname}
+          value={nickname.value}
+          alert="닉네임을 확인해 주세요"
+          isAlert={nickname.isAlert}
           onChange={(v: string) => onChange("nickname", v)}
-          placeholder="닉네임을 입력해 주세요"
+          placeholder="2글자 이상 8글자 이하"
         />
       </S.Form>
       <S.Buttons>

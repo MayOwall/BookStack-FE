@@ -6,6 +6,8 @@ function Input({
   type,
   value,
   onChange,
+  alert,
+  isAlert,
   width,
   fontSize,
   label,
@@ -34,6 +36,7 @@ function Input({
         placeholder={placeholder}
       />
       <S.Line isFocus={isFocus} />
+      <S.Alert isAlert={isAlert}>{alert}</S.Alert>
     </S.Container>
   );
 }

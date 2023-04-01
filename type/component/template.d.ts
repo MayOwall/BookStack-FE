@@ -1,13 +1,16 @@
 interface defaultProps {
-  onChange: (type: string, value: string) => void;
+  onChange: (
+    type: "id" | "pw" | "pwConfirm" | "nickname",
+    value: string
+  ) => void;
   onSubmit: () => void;
 }
 interface ISignupTemplateProps extends defaultProps {
   inputValues: {
-    id: string;
-    pw: string;
-    pwConfirm: string;
-    nickname: string;
+    id: { value: string; isAlert: boolean };
+    pw: { value: string; isAlert: boolean };
+    pwConfirm: { value: string; isAlert: boolean };
+    nickname: { value: string; isAlert: boolean };
   };
 }
 
