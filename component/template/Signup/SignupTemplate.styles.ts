@@ -13,7 +13,7 @@ export const Header = styled.div`
   }
 `;
 
-export const Inputs = styled.div`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
