@@ -16,7 +16,7 @@ function SignupTemplate({
         <h1>BOOK STACK</h1>
         <h2>Sign up</h2>
       </S.Header>
-      <S.Inputs>
+      <S.Form onSubmit={onSubmit}>
         <Input
           type="label"
           label="아이디"
@@ -45,7 +45,7 @@ function SignupTemplate({
           onChange={(v: string) => onChange("nickname", v)}
           placeholder="닉네임을 입력해 주세요"
         />
-      </S.Inputs>
+      </S.Form>
       <S.Buttons>
         <RoundButton
           type="line"
