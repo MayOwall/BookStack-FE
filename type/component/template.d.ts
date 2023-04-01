@@ -1,23 +1,29 @@
-interface defaultProps {
+interface IValueProps {
+  value: string;
+  isAlert: boolean;
+}
+
+interface ISignupTemplateProps {
+  inputValues: {
+    id: IValueProps;
+    pw: IValueProps;
+    pwConfirm: IValueProps;
+    nickname: IValueProps;
+  };
   onChange: (
     type: "id" | "pw" | "pwConfirm" | "nickname",
     value: string
   ) => void;
   onSubmit: () => void;
 }
-interface ISignupTemplateProps extends defaultProps {
+
+interface ISigninTemplateProps {
   inputValues: {
-    id: { value: string; isAlert: boolean };
-    pw: { value: string; isAlert: boolean };
-    pwConfirm: { value: string; isAlert: boolean };
-    nickname: { value: string; isAlert: boolean };
+    id: IValueProps;
+    pw: IValueProps;
   };
+  onChange: (type: "id" | "pw", value: string) => void;
+  onSubmit: () => void;
 }
 
-interface ISigninTemplateProps extends defaultProps {
-  inputValues: {
-    id: string;
-    pw: string;
-  };
-}
 export type { ISignupTemplateProps, ISigninTemplateProps };

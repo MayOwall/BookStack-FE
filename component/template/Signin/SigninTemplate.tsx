@@ -20,18 +20,18 @@ function SigninTemplate({
         <Input
           type="label"
           label="아이디"
-          value={id}
+          value={id.value}
           alert="아이디를 확인해 주세요"
-          isAlert={false}
+          isAlert={id.isAlert}
           onChange={(v: string) => onChange("id", v)}
           placeholder="아이디를 입력해 주세요"
         />
         <Input
           type="label"
           label="비밀번호"
-          value={pw}
+          value={pw.value}
           alert="비밀번호를 확인해 주세요"
-          isAlert={false}
+          isAlert={pw.isAlert}
           onChange={(v: string) => onChange("pw", v)}
           placeholder="비밀번호를 입력해 주세요"
         />
