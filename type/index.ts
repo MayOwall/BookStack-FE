@@ -6,6 +6,7 @@ import {
   ELineProps,
   EAlertProps,
   IInputProps,
+  INumericalDataProps,
 } from "./component/atom";
 
 import {
@@ -23,4 +24,5 @@ export type {
   IInputProps,
   ISignupTemplateProps,
   ISigninTemplateProps,
+  INumericalDataProps,
 };
