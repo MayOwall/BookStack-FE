@@ -1,5 +1,5 @@
 "use client";
-import { StackHeader, MonthlyStack, StackList } from "component";
+import { StackHeader, StackList } from "component";
 import { IStackTemplateProps } from "type";
 
 import * as S from "./StackTemplate.styles";

@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 export const Container = styled.div``;
 
 export const Month = styled.h3`
-  margin-bottom: 10px;
   font: ${({ theme }) => theme.font["medium-bold"]};
   font-size: 18px;
 `;
@@ -11,11 +10,9 @@ export const Month = styled.h3`
 export const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   width: 100%;
-  border-left: 1px solid ${({ theme }) => theme.color.darkgray};
   padding: 10px 0;
-  padding-left: 20px;
 `;
 
 export const Stack = styled.div`
