@@ -40,7 +40,7 @@ export const Button = styled.div<EButtonProps>`
 
   user-select: none;
   cursor: pointer;
-  opacity: 90%;
+  opacity: 100%;
   transition: all ease-in 0.15s;
 
   > div {
@@ -50,7 +50,7 @@ export const Button = styled.div<EButtonProps>`
     font-size: ${({ fontSize }) => fontSize || "13px"};
   }
   &:hover {
-    opacity: 100%;
+    opacity: 90%;
   }
   &:active {
     border: ${({ type, color, theme }) => {
