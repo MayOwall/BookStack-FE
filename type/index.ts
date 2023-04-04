@@ -9,6 +9,8 @@ import {
   INumericalDataProps,
 } from "./component/atom";
 
+import { IMonthlyStackProps } from "./component/molecule";
+
 import { IStackHeaderProps } from "./component/organsim";
 
 import {
@@ -25,6 +27,7 @@ export type {
   ELineProps,
   EAlertProps,
   IInputProps,
+  IMonthlyStackProps,
   IStackHeaderProps,
   ISignupTemplateProps,
   ISigninTemplateProps,

@@ -8,8 +8,8 @@ const theme: Theme = {
     "small-light": "normal 300 13px Noto Sans KR",
     "medium-bold": "normal 900 20px Noto Sans KR",
     "medium-light": "normal 300 20px Noto Sans KR",
-    "large-bold": "normal 900 30px Noto Sans KR",
-    "large-light": "normal 300 30px Noto Sans KR",
+    "large-bold": "normal 900 25px Noto Sans KR",
+    "large-light": "normal 300 25px Noto Sans KR",
   },
   color: {
     white: "#ffffff",

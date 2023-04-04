@@ -3,6 +3,9 @@ import Input from "./atom/Input/Input";
 import RoundButton from "./atom/RoundButton/RoundButton";
 import NumericalData from "./atom/NumericalData/NumericalData";
 
+// molecule
+import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
+
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
 
@@ -16,6 +19,7 @@ export {
   Input,
   RoundButton,
   NumericalData,
+  MonthlyStack,
   StackHeader,
   HomeTemplate,
   SignupTemplate,
