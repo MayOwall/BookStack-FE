@@ -14,6 +14,7 @@ import { IStackHeaderProps } from "./component/organsim";
 import {
   ISignupTemplateProps,
   ISigninTemplateProps,
+  IStackTemplateProps,
 } from "./component/template";
 
 export type {
@@ -28,4 +29,5 @@ export type {
   ISignupTemplateProps,
   ISigninTemplateProps,
   INumericalDataProps,
+  IStackTemplateProps,
 };

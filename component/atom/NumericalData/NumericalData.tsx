@@ -1,3 +1,5 @@
+"use client";
+
 import { addComma } from "hooks";
 import { INumericalDataProps } from "type";
 import * as S from "./NumericalData.styles";

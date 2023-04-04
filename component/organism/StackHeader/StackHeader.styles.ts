@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Container = styled.header`
   width: 100%;
-  border: 1px solid;
 `;
 
 export const Upper = styled.div`
@@ -14,6 +13,7 @@ export const Upper = styled.div`
 `;
 
 export const Title = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -24,9 +24,17 @@ export const Title = styled.div`
 `;
 
 export const IconContainer = styled.div`
+  position: relative;
+  top: 2px;
   width: 20px;
   height: 20px;
-  border: 1px solid;
+  opacity: 50%;
+  cursor: pointer;
+  transition: 0.2s ease-out all;
+
+  :hover {
+    opacity: 100%;
+  }
 `;
 
 export const Profile = styled.div`
@@ -52,11 +60,13 @@ export const Bottom = styled.div`
 
     span {
       position: relative;
+      right: 3px;
       bottom: 8px;
-      width: 36px;
-      height: 36px;
-      border: 1px solid lightgray;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
     }
+
     span:nth-child(even) {
       margin-left: 15px;
     }

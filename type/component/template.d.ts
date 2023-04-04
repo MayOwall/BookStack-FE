@@ -1,3 +1,5 @@
+import { IStackHeaderProps } from "./organsim";
+
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -26,4 +28,14 @@ interface ISigninTemplateProps {
   onSubmit: () => void;
 }
 
-export type { ISignupTemplateProps, ISigninTemplateProps };
+interface IStackTemplateProps {
+  headerData: {
+    img: string;
+    bookCount: number;
+    pageCount: number;
+    stackType: "shelf" | "stack";
+  };
+  handleStackType: (v: "stack" | "shelf") => void;
+}
+
+export type { ISignupTemplateProps, ISigninTemplateProps, IStackTemplateProps };

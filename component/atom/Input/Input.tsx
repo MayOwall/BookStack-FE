@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { IInputProps } from "type";
 import * as S from "./Input.styles";

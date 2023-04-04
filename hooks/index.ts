@@ -3,4 +3,6 @@ export const addComma = (num: number) =>
     .toString()
     .split("")
     .reverse()
-    .reduce((acc, cur, idx) => acc + ((idx + 1) % 3 ? cur : `,${cur}`), "");
+    .map((v, idx) => (!idx || idx % 3 ? v : v + ","))
+    .reverse()
+    .join("");
