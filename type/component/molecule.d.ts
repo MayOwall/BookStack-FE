@@ -1,10 +1,10 @@
 export interface IStackProps {
-  id: string;
+  _id: string;
   no: number;
   title: string;
   author: string;
   date: string;
-  img?: string;
+  img: string;
 }
 
 export interface IMonthlyStackProps {

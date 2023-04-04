@@ -12,7 +12,7 @@ export interface IStackListProps {
   stackType: "stack" | "shelf";
   stackData: {
     month: string;
-    data: IStackProps[];
+    stackList: IStackProps[];
   }[];
   onStackClick: (id: string) => void;
 }

@@ -1,5 +1,5 @@
 import { IStackHeaderProps } from "./organsim";
-
+import { IStackProps } from "./molecule";
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -35,6 +35,7 @@ interface IStackTemplateProps {
     pageCount: number;
     stackType: "shelf" | "stack";
   };
+  stackData: { month: string; stackList: IStackProps[] }[];
   handleStackType: (v: "stack" | "shelf") => void;
 }
 

@@ -27,7 +27,7 @@ function StackList({ stackType, stackData, onStackClick }: IStackListProps) {
             <MonthlyStack
               month={stack.month}
               stackType={stackType}
-              stackList={stack.data}
+              stackList={stack.stackList}
               onStackClick={onStackClick}
             />
           </div>
