@@ -11,7 +11,8 @@ export const Label = styled.div`
 
 export const Data = styled.div`
   position: relative;
-  top: -10px;
+  top: -5px;
   font: ${({ theme }) => theme.font["large-bold"]};
+  font-size: 30px;
   font-weight: 700;
 `;

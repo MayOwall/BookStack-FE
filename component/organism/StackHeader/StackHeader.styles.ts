@@ -61,7 +61,6 @@ export const Bottom = styled.div`
     span {
       position: relative;
       right: 3px;
-      bottom: 8px;
       width: 30px;
       height: 30px;
       cursor: pointer;

@@ -11,6 +11,10 @@ export const Container = styled.section`
 
   overflow: auto;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   > div:first-of-type {
     flex-shrink: 0;
   }
@@ -18,10 +22,5 @@ export const Container = styled.section`
     flex-grow: 1;
     width: 100%;
     height: 1px;
-    overflow: auto;
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
   }
 `;

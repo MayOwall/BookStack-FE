@@ -8,6 +8,7 @@ import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
 
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
+import StackList from "./organism/StackList/StackList";
 
 // template
 import HomeTemplate from "./template/Home/HomeTemplate";
@@ -21,6 +22,7 @@ export {
   NumericalData,
   MonthlyStack,
   StackHeader,
+  StackList,
   HomeTemplate,
   SignupTemplate,
   SigninTemplate,

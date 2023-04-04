@@ -5,6 +5,7 @@ export const Container = styled.div``;
 export const Month = styled.h3`
   margin-bottom: 10px;
   font: ${({ theme }) => theme.font["medium-bold"]};
+  font-size: 18px;
 `;
 
 export const Inner = styled.div`
@@ -38,6 +39,10 @@ export const Stack = styled.div`
     flex-grow: 1;
     width: 1px;
 
+    :hover ~ div img {
+      filter: grayscale(0);
+    }
+
     > h4 {
       overflow: hidden;
       white-space: nowrap;
@@ -47,6 +52,7 @@ export const Stack = styled.div`
 
     > small {
       width: 100%;
+
       span {
         font: ${({ theme }) => theme.font["small-light"]};
         color: ${({ theme }) => theme.color.lightgray};
@@ -68,9 +74,16 @@ export const Stack = styled.div`
     width: 70px;
     height: 100px;
 
+    :hover img {
+      filter: grayscale(0);
+    }
+
     img {
+      border: 1px solid ${({ theme }) => theme.color.lightgray}33;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 5px;
+      filter: grayscale(1);
+      transition: 0.2s ease-out filter;
     }
   }
 `;
@@ -103,6 +116,9 @@ export const Shelf = styled.div`
     :hover > h4 {
       color: ${({ theme }) => theme.color.darkgray};
     }
+    :hover > img {
+      filter: grayscale(0);
+    }
 
     > h4 {
       width: 100%;
@@ -116,6 +132,8 @@ export const Shelf = styled.div`
     img {
       border-radius: 10px;
       object-fit: cover;
+      filter: grayscale(1);
+      transition: 0.2s ease-out all;
     }
   }
 `;
