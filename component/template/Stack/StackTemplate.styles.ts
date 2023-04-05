@@ -9,8 +9,7 @@ export const Container = styled.section`
   gap: 40px;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  padding-top: 60px;
+  padding: 60px 40px;
 
   overflow: auto;
 

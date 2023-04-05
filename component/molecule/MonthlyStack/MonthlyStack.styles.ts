@@ -9,7 +9,7 @@ export const Month = styled.h3`
 
 export const Inner = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 10px;
   width: 100%;
   padding: 10px 0;

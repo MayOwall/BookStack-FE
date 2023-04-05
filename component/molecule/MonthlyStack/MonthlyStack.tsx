@@ -14,7 +14,7 @@ function MonthlyStack({
       <S.Inner>
         {stackType === "stack" &&
           stackList.map((v) => (
-            <S.Stack key={v.id} onClick={() => onStackClick(v.id)}>
+            <S.Stack key={v._id} onClick={() => onStackClick(v._id)}>
               <div>
                 <h4>{v.title}</h4>
                 <small>
@@ -33,7 +33,7 @@ function MonthlyStack({
         <S.Shelf>
           {stackType === "shelf" &&
             stackList.map((v) => (
-              <div key={v.id} onClick={() => onStackClick(v.id)}>
+              <div key={v._id} onClick={() => onStackClick(v._id)}>
                 {!!v.img && <Image src={v.img} fill alt="bookimg" />}
                 {!v.img && <h4>{v.title}</h4>}
               </div>
