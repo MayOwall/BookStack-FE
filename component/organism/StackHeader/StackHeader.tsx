@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { NumericalData } from "component";
 import { InfoIcon, StackIcon, ShelfIcon } from "public";
 import { IStackHeaderProps } from "type";
@@ -31,7 +32,9 @@ function StackHeader({
           </S.IconContainer>
         </S.Title>
         <S.Profile>
-          <Image src={img} fill alt="profile" />
+          <Link href="/profile">
+            <Image src={img} fill alt="profile" />
+          </Link>
         </S.Profile>
       </S.Upper>
       <S.Bottom>
