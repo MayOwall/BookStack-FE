@@ -14,6 +14,9 @@ export default {
   title: "organism/MonthlyStack",
   component: MonthlyStack,
   argTypes: {
+    month: { control: "text" },
+    stackType: { control: "radio", options: ["stack", "shelf"] },
+    onStackClick: { control: false },
     stackList: { control: false },
   },
 } as ComponentMeta<typeof MonthlyStack>;
@@ -30,25 +33,28 @@ Default.args = {
   stackType: "stack",
   stackList: [
     {
-      id: "",
+      _id: "",
       no: 1,
       title: "스즈메의 문단속1",
       author: "신카이 마코토",
       date: "2023.03.13",
+      img: "",
     },
     {
-      id: "",
+      _id: "",
       no: 2,
       title: "스즈메의 문단속2",
       author: "신카이 마코토",
       date: "2023.03.13",
+      img: "",
     },
     {
-      id: "",
+      _id: "",
       no: 2,
       title: "스즈메의 문단속3",
       author: "신카이 마코토",
       date: "2023.03.13",
+      img: "",
     },
   ],
   onStackClick: () => {},

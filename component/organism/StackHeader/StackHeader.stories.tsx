@@ -32,7 +32,7 @@ const Template: ComponentStory<typeof StackHeader> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  img: "https://avatars.githubusercontent.com/u/97934878?v=4",
+  profileImg: "https://avatars.githubusercontent.com/u/97934878?v=4",
   bookCount: 13,
   pageCount: 27385,
 };
