@@ -28,15 +28,21 @@ interface ISigninTemplateProps {
   onSubmit: () => void;
 }
 
+interface StackHeaderData {
+  profileImg: string;
+  bookCount: number;
+  pageCount: number;
+  stackType: "shelf" | "stack";
+}
 interface IStackTemplateProps {
-  headerData: {
-    img: string;
-    bookCount: number;
-    pageCount: number;
-    stackType: "shelf" | "stack";
-  };
+  headerData: StackHeaderData;
   stackData: { month: string; stackList: IStackProps[] }[];
   handleStackType: (v: "stack" | "shelf") => void;
 }
 
-export type { ISignupTemplateProps, ISigninTemplateProps, IStackTemplateProps };
+export type {
+  StackHeaderData,
+  ISignupTemplateProps,
+  ISigninTemplateProps,
+  IStackTemplateProps,
+};

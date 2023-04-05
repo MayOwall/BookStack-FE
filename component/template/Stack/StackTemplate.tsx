@@ -9,12 +9,12 @@ function StackTemplate({
   handleStackType,
   stackData,
 }: IStackTemplateProps) {
-  const { img, bookCount, pageCount, stackType } = headerData;
+  const { profileImg, bookCount, pageCount, stackType } = headerData;
 
   return (
     <S.Container>
       <StackHeader
-        img={img}
+        profileImg={profileImg}
         bookCount={bookCount}
         pageCount={pageCount}
         stackType={stackType}

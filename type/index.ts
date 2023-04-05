@@ -14,6 +14,7 @@ import { IMonthlyStackProps } from "./component/molecule";
 import { IStackHeaderProps, IStackListProps } from "./component/organsim";
 
 import {
+  StackHeaderData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
@@ -30,6 +31,7 @@ export type {
   IMonthlyStackProps,
   IStackHeaderProps,
   IStackListProps,
+  StackHeaderData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   INumericalDataProps,

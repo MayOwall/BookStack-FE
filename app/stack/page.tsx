@@ -3,38 +3,36 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getStack } from "api";
 import { StackTemplate } from "component";
+import { StackHeaderData } from "type";
 import { IStackProps } from "@/type/component/molecule";
-
-const dummyHeader: {
-  img: string;
-  bookCount: number;
-  pageCount: number;
-  stackType: "shelf" | "stack";
-} = {
-  img: "https://avatars.githubusercontent.com/u/97934878?v=4",
-  bookCount: 13,
-  pageCount: 27385,
-  stackType: "shelf",
-};
 
 export default function StackPage() {
   const router = useRouter();
-  const [headerData, setHeaderData] = useState({ ...dummyHeader });
+  const [headerData, setHeaderData] = useState<StackHeaderData | null>(null);
   const [stackData, setStackData] =
     useState<{ month: string; stackList: IStackProps[] }[] | null>(null);
 
   const handleStackType = (v: "stack" | "shelf") => {
-    const nextheaderData = {
-      ...headerData,
-      stackType: v,
-    };
-    setHeaderData(() => nextheaderData);
+    if (headerData) {
+      const nextHeaderData = {
+        ...headerData,
+        stackType: v,
+      };
+      setHeaderData(() => nextHeaderData);
+    }
   };
 
   const getStackData = async () => {
     try {
-      const data = await getStack();
-      setStackData(() => data);
+      const { profileImg, bookCount, pageCount, posts } = await getStack();
+      const nextHeaderData: StackHeaderData = {
+        profileImg,
+        bookCount,
+        pageCount,
+        stackType: "shelf",
+      };
+      setStackData(() => posts);
+      setHeaderData(() => nextHeaderData);
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +48,7 @@ export default function StackPage() {
 
   return (
     <>
-      {!!stackData && (
+      {!!stackData && !!headerData && (
         <StackTemplate
           headerData={headerData}
           handleStackType={handleStackType}

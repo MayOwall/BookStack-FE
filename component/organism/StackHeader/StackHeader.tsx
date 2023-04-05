@@ -8,7 +8,7 @@ import * as S from "./StackHeader.styles";
 import { theme } from "style";
 
 function StackHeader({
-  img,
+  profileImg,
   bookCount,
   pageCount,
   stackType,
@@ -33,7 +33,7 @@ function StackHeader({
         </S.Title>
         <S.Profile>
           <Link href="/profile">
-            <Image src={img} fill alt="profile" />
+            <Image src={profileImg} fill alt="profile" />
           </Link>
         </S.Profile>
       </S.Upper>

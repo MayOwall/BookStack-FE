@@ -1,7 +1,7 @@
 import { IStackProps } from "./molecule.d";
 
 export interface IStackHeaderProps {
-  img: string;
+  profileImg: string;
   bookCount: number;
   pageCount: number;
   stackType: "stack" | "shelf";
