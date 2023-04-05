@@ -1,3 +1,4 @@
+"use client";
 import { IRoundButtonProps } from "type";
 import * as S from "./RoundButton.styles";
 

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Input, RoundButton } from "component";
 import { ISigninTemplateProps } from "type";

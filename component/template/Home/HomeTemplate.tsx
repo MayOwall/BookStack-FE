@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 import { RoundButton } from "component";
 import * as S from "./HomeTemplate.styles";

@@ -34,3 +34,8 @@ export interface IInputProps extends EInputProps, EAlertProps {
   onChange: (v: string) => void;
   label?: string;
 }
+
+export interface INumericalDataProps {
+  label: string;
+  data: number;
+}

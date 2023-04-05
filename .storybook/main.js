@@ -13,11 +13,11 @@ module.exports = {
       use: ["@svgr/webpack"],
     });
     const alias = {
-      components: path.resolve(__dirname, "../components"),
+      component: path.resolve(__dirname, "../component"),
       app: path.resolve(__dirname, "../app"),
       public: path.resolve(__dirname, "../public"),
       hooks: path.resolve(__dirname, "../hooks"),
-      apis: path.resolve(__dirname, "../apis"),
+      api: path.resolve(__dirname, "../api"),
     };
     config.resolve.alias = {
       ...config.resolve.alias,

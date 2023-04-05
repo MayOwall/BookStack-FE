@@ -1,3 +1,5 @@
+import { IStackHeaderProps } from "./organsim";
+import { IStackProps } from "./molecule";
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -26,4 +28,21 @@ interface ISigninTemplateProps {
   onSubmit: () => void;
 }
 
-export type { ISignupTemplateProps, ISigninTemplateProps };
+interface StackHeaderData {
+  profileImg: string;
+  bookCount: number;
+  pageCount: number;
+  stackType: "shelf" | "stack";
+}
+interface IStackTemplateProps {
+  headerData: StackHeaderData;
+  stackData: { month: string; stackList: IStackProps[] }[];
+  handleStackType: (v: "stack" | "shelf") => void;
+}
+
+export type {
+  StackHeaderData,
+  ISignupTemplateProps,
+  ISigninTemplateProps,
+  IStackTemplateProps,
+};
