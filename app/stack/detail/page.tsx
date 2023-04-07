@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StackDetailTemplate } from "component";
 
 const dummyBookInfo = {
@@ -53,6 +53,11 @@ export default function StackDetailPage() {
   const handleCover = (v: string) => {
     setCover(() => v);
   };
+
+  useEffect(() => {
+    localStorage.setItem("tempBookInfo", JSON.stringify(bookInfo));
+  }, [bookInfo]);
+
   return (
     <div>
       <StackDetailTemplate
