@@ -18,6 +18,7 @@ import {
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
 } from "./component/template";
 
 export type {
@@ -37,4 +38,5 @@ export type {
   ISigninTemplateProps,
   INumericalDataProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
 };

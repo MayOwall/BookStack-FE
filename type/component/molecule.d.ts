@@ -14,7 +14,7 @@ export interface IMonthlyStackProps {
   onStackClick: (id: string) => void;
 }
 
-type IData = {
+export type IData = {
   date: string;
   quoteList: {
     page: number;

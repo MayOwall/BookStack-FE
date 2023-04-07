@@ -111,4 +111,5 @@ export const Img = styled.div`
   aspect-ratio: 1 / 1.4;
   border: 1px dashed ${({ theme }) => theme.color.lightgray};
   border-radius: 10px;
+  visibility: hidden;
 `;

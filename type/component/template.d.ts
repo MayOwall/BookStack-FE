@@ -1,5 +1,6 @@
 import { IStackHeaderProps } from "./organsim";
 import { IStackProps } from "./molecule";
+import { IData } from "./molecule";
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -40,9 +41,25 @@ interface IStackTemplateProps {
   handleStackType: (v: "stack" | "shelf") => void;
 }
 
+interface IStackDetailTemplateProps {
+  bookInfo: {
+    no: number;
+    title: string;
+    author: string;
+    publisher: string;
+    date: string;
+    detail: string;
+  };
+  handleBookInfo: (type: string, v: string | number) => void;
+  quoteData: IData;
+  handleQuoteData: (data: IData) => void;
+  cover: string;
+  handleCover: (v: string) => void;
+}
 export type {
   StackHeaderData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
 };

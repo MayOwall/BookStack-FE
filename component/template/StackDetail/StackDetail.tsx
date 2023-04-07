@@ -1,61 +1,38 @@
-import { useState } from "react";
+import Image from "next/image";
+import { useRef } from "react";
 import * as S from "./StackDetail.styles";
 import { QuoteStack, BookInfo } from "component";
+import { IStackDetailTemplateProps } from "type";
 
-const dummyBookInfo = {
-  no: 1,
-  title: "스즈메의 문단속",
-  author: "신카이 마코토",
-  publisher: "대원씨아이",
-  date: "2023.03.13",
-  detail: "",
-};
-
-const dummyQuoteData = [
-  {
-    date: "2023.03.13",
-    quoteList: [
-      {
-        page: 103,
-        quote:
-          "몽환적인 밤하늘 아래, 펼쳐진 초원 속의 폐허를 숨가쁘게 돌아다니며 어머니를 찾는 어린 시절의 스즈메를 보여 주면서 영화가 시작된다.",
-      },
-      {
-        page: 108,
-        quote: "중요한 일은 다른사람이 볼 수 없는 것이 나아.",
-      },
-    ],
-  },
-];
-
-function StackDetailTemplate() {
-  const [bookInfo, setBookInfo] = useState(dummyBookInfo);
-  const [quoteData, setQuoteData] = useState(dummyQuoteData);
-
-  const handleBookInfo = (type: string, v: number | string) => {
-    if (type === "no") {
-      const nextData = {
-        ...bookInfo,
-        no: Number(v),
-      };
-      setBookInfo(() => nextData);
-    }
-    if (type !== "no") {
-      const nextData = {
-        ...bookInfo,
-        [type]: String(v),
-      };
-      setBookInfo(() => nextData);
-    }
+function StackDetailTemplate({
+  bookInfo,
+  handleBookInfo,
+  quoteData,
+  handleQuoteData,
+  cover,
+  handleCover,
+}: IStackDetailTemplateProps) {
+  const ref = useRef<HTMLInputElement | null>(null);
+  const handleCoverButton = (e: React.MouseEvent) => {
+    alert("아직 개발중인 기능입니다. 다음 업데이트를 기대해주세요 :)");
+    // if (ref.current) {
+    //   ref.current.click();
+    // }
   };
   return (
     <S.Container>
-      <S.BannerContainer></S.BannerContainer>
+      <S.CoverContainer>
+        {!!cover && <Image src={cover} fill alt="cover image" />}
+        <S.CoverButton onClick={handleCoverButton}>
+          Change Cover
+          <input type="file" ref={ref} />
+        </S.CoverButton>
+      </S.CoverContainer>
       <S.DetailContainer>
         {!!bookInfo && (
           <BookInfo bookInfo={bookInfo} handleBookInfo={handleBookInfo} />
         )}
-        <QuoteStack data={quoteData} handleData={setQuoteData} />
+        <QuoteStack data={quoteData} handleData={handleQuoteData} />
       </S.DetailContainer>
     </S.Container>
   );

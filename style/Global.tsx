@@ -10,6 +10,9 @@ const globalStyle = css`
     justify-content: center;
     background-color: rgb(31, 31, 31);
     font-family: "Noto Sans KR", sans-serif;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
   body > div {
     display: flex;
