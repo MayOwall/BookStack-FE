@@ -5,6 +5,7 @@ import NumericalData from "./atom/NumericalData/NumericalData";
 
 // molecule
 import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
+import QuoteStack from "./molecule/QuoteStack/QuoteStack";
 
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
@@ -23,6 +24,7 @@ export {
   RoundButton,
   NumericalData,
   MonthlyStack,
+  QuoteStack,
   StackHeader,
   StackList,
   BookInfo,

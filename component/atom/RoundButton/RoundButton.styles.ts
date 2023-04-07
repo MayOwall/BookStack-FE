@@ -35,7 +35,12 @@ export const Button = styled.div<EButtonProps>`
   border-radius: ${({ height }) =>
     height ? `${Number(height.replace(/[^0-9]/g, "")) / 2}px` : "50%"};
   background-color: ${({ type, color, theme }) => {
-    return type === "fill" ? color || theme.color.black : theme.color.white;
+    if (type === "fill") {
+      return color || theme.color.black;
+    }
+    if (type === "dash" || type === "line") {
+      return theme.color.white;
+    }
   }};
 
   user-select: none;
@@ -49,10 +54,10 @@ export const Button = styled.div<EButtonProps>`
     font: ${({ theme }) => theme.font["small-light"]};
     font-size: ${({ fontSize }) => fontSize || "13px"};
   }
-  &:hover {
+  :hover {
     opacity: 90%;
   }
-  &:active {
+  :active {
     border: ${({ type, color, theme }) => {
       switch (type) {
         case "dash": {

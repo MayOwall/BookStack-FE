@@ -13,3 +13,15 @@ export interface IMonthlyStackProps {
   stackList: IStackProps[];
   onStackClick: (id: string) => void;
 }
+
+type IData = {
+  date: string;
+  quoteList: {
+    page: number;
+    quote: string;
+  }[];
+}[];
+export interface IQuoteStackProps {
+  data: IData;
+  handleData: (data: IData) => void;
+}

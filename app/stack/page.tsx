@@ -24,7 +24,12 @@ export default function StackPage() {
 
   const getStackData = async () => {
     try {
-      const { profileImg, bookCount, pageCount, posts } = await getStack();
+      const data = await getStack();
+      if (data.error) {
+        alert("로그인 만료. 다시 로그인해 주세요");
+        return router.push("/signin");
+      }
+      const { profileImg, bookCount, pageCount, posts } = data;
       const nextHeaderData: StackHeaderData = {
         profileImg,
         bookCount,

@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 40px;
   width: 100%;
   height: 100%;
@@ -22,4 +21,7 @@ export const BannerContainer = styled.div``;
 
 export const DetailContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 `;
