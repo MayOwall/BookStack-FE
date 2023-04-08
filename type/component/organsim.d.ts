@@ -1,4 +1,4 @@
-import { IStackProps } from "./molecule.d";
+import { IStackProps, IData } from "./molecule.d";
 
 export interface IStackHeaderProps {
   profileImg: string;
@@ -15,4 +15,9 @@ export interface IStackListProps {
     stackList: IStackProps[];
   }[];
   onStackClick: (id: string) => void;
+}
+
+export interface IQuoteStackProps {
+  data: IData;
+  handleData: (data: IData) => void;
 }

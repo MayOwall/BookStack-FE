@@ -21,7 +21,14 @@ export type IData = {
     quote: string;
   }[];
 }[];
-export interface IQuoteStackProps {
-  data: IData;
-  handleData: (data: IData) => void;
+
+export interface IQuoteCardProps {
+  quote: string;
+  page: number;
+  handleQuoteDelete: (quote: string) => void;
+}
+
+export interface IQuoteCreateCardProps {
+  handlePush: (newQuoteData: { quote: string; page: number }) => void;
+  handleCancel: () => void;
 }

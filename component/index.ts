@@ -5,12 +5,14 @@ import NumericalData from "./atom/NumericalData/NumericalData";
 
 // molecule
 import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
-import QuoteStack from "./molecule/QuoteStack/QuoteStack";
+import QuoteCard from "./molecule/QuoteCard/QuoteCard";
+import QuoteCreateCard from "./molecule/QuoteCreateCard/QuoteCreateCard";
 
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
 import StackList from "./organism/StackList/StackList";
 import BookInfo from "./organism/BookInfo/BookInfo";
+import QuoteStack from "./organism/QuoteStack/QuoteStack";
 
 // template
 import HomeTemplate from "./template/Home/HomeTemplate";
@@ -24,10 +26,12 @@ export {
   RoundButton,
   NumericalData,
   MonthlyStack,
-  QuoteStack,
+  QuoteCard,
+  QuoteCreateCard,
   StackHeader,
   StackList,
   BookInfo,
+  QuoteStack,
   HomeTemplate,
   SignupTemplate,
   SigninTemplate,

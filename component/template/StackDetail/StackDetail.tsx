@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRef } from "react";
-import * as S from "./StackDetail.styles";
 import { QuoteStack, BookInfo } from "component";
 import { IStackDetailTemplateProps } from "type";
+import * as S from "./StackDetail.styles";
 
 function StackDetailTemplate({
   bookInfo,
@@ -15,9 +15,6 @@ function StackDetailTemplate({
   const ref = useRef<HTMLInputElement | null>(null);
   const handleCoverButton = (e: React.MouseEvent) => {
     alert("아직 개발중인 기능입니다. 다음 업데이트를 기대해주세요 :)");
-    // if (ref.current) {
-    //   ref.current.click();
-    // }
   };
   return (
     <S.Container>

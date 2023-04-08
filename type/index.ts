@@ -9,9 +9,17 @@ import {
   INumericalDataProps,
 } from "./component/atom";
 
-import { IMonthlyStackProps, IQuoteStackProps } from "./component/molecule";
+import {
+  IMonthlyStackProps,
+  IQuoteCardProps,
+  IQuoteCreateCardProps,
+} from "./component/molecule";
 
-import { IStackHeaderProps, IStackListProps } from "./component/organsim";
+import {
+  IStackHeaderProps,
+  IStackListProps,
+  IQuoteStackProps,
+} from "./component/organsim";
 
 import {
   StackHeaderData,
@@ -30,6 +38,8 @@ export type {
   EAlertProps,
   IInputProps,
   IMonthlyStackProps,
+  IQuoteCardProps,
+  IQuoteCreateCardProps,
   IQuoteStackProps,
   IStackHeaderProps,
   IStackListProps,
