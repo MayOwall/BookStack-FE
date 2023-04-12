@@ -17,18 +17,10 @@ declare module "@emotion/react" {
       "xxlarge-bold": string;
     };
     color: {
-      light: {
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-      };
-      dark: {
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-      };
+      1: string;
+      2: string;
+      3: string;
+      4: string;
       alert: string;
     };
   }
