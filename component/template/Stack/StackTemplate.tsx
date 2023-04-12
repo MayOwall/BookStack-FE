@@ -1,8 +1,18 @@
 "use client";
-import { StackHeader, StackList } from "component";
+import { useState } from "react";
+import { StackHeader, StackList, StackCreateTemplate } from "component";
 import { IStackTemplateProps } from "type";
 
 import * as S from "./StackTemplate.styles";
+
+const initBookInfo = {
+  no: 0,
+  title: "",
+  author: "",
+  publisher: "",
+  date: "",
+  detail: "",
+};
 
 function StackTemplate({
   headerData,
@@ -10,6 +20,7 @@ function StackTemplate({
   stackData,
 }: IStackTemplateProps) {
   const { profileImg, bookCount, pageCount, stackType } = headerData;
+  const [isVisible, setVisible] = useState(false);
 
   return (
     <S.Container>
@@ -27,6 +38,14 @@ function StackTemplate({
           onStackClick={(v) => console.log(v)}
         />
       </div>
+      {isVisible && (
+        <S.CreateContainer>
+          <StackCreateTemplate
+            bookInfo={initBookInfo}
+            handleBookInfo={() => {}}
+          />
+        </S.CreateContainer>
+      )}
     </S.Container>
   );
 }

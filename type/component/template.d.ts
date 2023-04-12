@@ -52,14 +52,34 @@ interface IStackDetailTemplateProps {
   };
   handleBookInfo: (type: string, v: string | number) => void;
   quoteData: IData;
-  handleQuoteData: (data: IData) => void;
+  handleQuoteData: (
+    type: "push" | "edit" | "delete",
+    data: { _id?: string; quote?: string; page?: number }
+  ) => void;
   cover: string;
   handleCover: (v: string) => void;
 }
+
+interface IStackCreateTemplateProps {
+  bookInfo: {
+    no: number;
+    title: string;
+    author: string;
+    publisher: string;
+    date: string;
+    detail: string;
+  };
+  handleBookInfo: (
+    type: "title" | "author" | "publisher" | "date" | "detail",
+    v: string
+  ) => void;
+}
+
 export type {
   StackHeaderData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
   IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 };

@@ -18,6 +18,9 @@ export interface IStackListProps {
 }
 
 export interface IQuoteStackProps {
-  data: IData;
-  handleData: (data: IData) => void;
+  quoteData: IData;
+  handleQuoteData: (
+    type: "push" | "edit" | "delete",
+    data: { _id?: string; quote?: string; page?: number }
+  ) => void;
 }

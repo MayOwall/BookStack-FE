@@ -11,7 +11,10 @@ interface IBookInfoProps {
     date: string;
     detail: string;
   };
-  handleBookInfo: (type: string, v: string | number) => void;
+  handleBookInfo: (
+    type: "title" | "author" | "publisher" | "date" | "detail",
+    v: string
+  ) => void;
 }
 
 function BookInfo({ bookInfo, handleBookInfo }: IBookInfoProps) {

@@ -5,49 +5,11 @@ import { dateFormatter } from "hooks";
 import { IQuoteStackProps } from "type";
 import * as S from "./QuoteStack.styles";
 
-function QuoteStack({ data, handleData }: IQuoteStackProps) {
+function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
   const [isCreatingNew, setIsCreatingNew] = useState(false);
 
-  // Quote 삭제 핸들러
-  const handleQuoteDelete = (e: React.MouseEvent) => {
-    const target = e.target as HTMLDivElement;
-    const { innerText } = target.closest(".quote")
-      ?.children[0] as HTMLDivElement;
-    const nextData = [...data];
-    const filtered = nextData
-      .map((stack) => {
-        const nextQuoteList = stack.quoteList.filter(
-          (quote) => quote.quote !== innerText
-        );
-        return {
-          ...stack,
-          quoteList: nextQuoteList,
-        };
-      })
-      .filter((stack) => !!stack.quoteList.length);
-    handleData(filtered);
-  };
-
-  // Quote 생성 핸들러
-  const handleQuotePush = (newQuoteData: { page: number; quote: string }) => {
-    const nextData = [...data];
-
-    const today = dateFormatter(new Date());
-    const lastData = nextData[nextData.length - 1];
-    // 데이터의 마지막 날이 오늘과 동일하면, 데이터 마지막날에 push
-    if (lastData.date === today) {
-      lastData.quoteList.push(newQuoteData);
-    }
-    // 데이터 마지막 날이 오늘이 아니라면, 새로운 stack을 만들어 push
-    if (lastData.date !== today) {
-      const todayStack = {
-        date: today,
-        quoteList: [newQuoteData],
-      };
-      nextData.push(todayStack);
-    }
-
-    handleData(nextData);
+  // Quote 생성 버튼 클릭 핸들러
+  const handleRoundButton = () => {
     setIsCreatingNew((v) => !v);
   };
 
@@ -56,20 +18,34 @@ function QuoteStack({ data, handleData }: IQuoteStackProps) {
     setIsCreatingNew((v) => !v);
   };
 
-  // Quote 생성 클릭 핸들러
-  const handleRoundButton = () => {
-    setIsCreatingNew((v) => !v);
+  // Quote 생성 핸들러
+  const handleQuotePush = (newQuoteData: { page: number; quote: string }) => {
+    const { quote, page } = newQuoteData;
+    const nextData = {
+      quote,
+      page,
+    };
+    handleQuoteData("push", nextData);
+  };
+
+  // Quote 삭제 핸들러
+  const handleQuoteDelete = (_id: string) => {
+    const nextData = {
+      _id,
+    };
+    handleQuoteData("delete", nextData);
   };
 
   return (
     <S.Container>
       <S.StackContainer>
-        {data.map(({ date, quoteList }, i) => (
+        {quoteData.map(({ date, quoteList }, i) => (
           <S.QuoteContainer key={`QuoteContainer${i}`}>
             <S.StackDate>{date}</S.StackDate>
-            {quoteList.map(({ page, quote }, i) => (
+            {quoteList.map(({ _id, page, quote }, i) => (
               <QuoteCard
                 key={`QuoteCard${i}`}
+                _id={_id}
                 quote={quote}
                 page={page}
                 handleQuoteDelete={handleQuoteDelete}

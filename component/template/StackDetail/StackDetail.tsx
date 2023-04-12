@@ -29,7 +29,7 @@ function StackDetailTemplate({
         {!!bookInfo && (
           <BookInfo bookInfo={bookInfo} handleBookInfo={handleBookInfo} />
         )}
-        <QuoteStack data={quoteData} handleData={handleQuoteData} />
+        <QuoteStack quoteData={quoteData} handleQuoteData={handleQuoteData} />
       </S.DetailContainer>
     </S.Container>
   );

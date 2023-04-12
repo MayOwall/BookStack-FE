@@ -27,6 +27,7 @@ import {
   ISigninTemplateProps,
   IStackTemplateProps,
   IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 } from "./component/template";
 
 export type {
@@ -49,4 +50,5 @@ export type {
   INumericalDataProps,
   IStackTemplateProps,
   IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 };

@@ -28,3 +28,9 @@ export const Container = styled.section`
     height: 1px;
   }
 `;
+
+export const CreateContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`;

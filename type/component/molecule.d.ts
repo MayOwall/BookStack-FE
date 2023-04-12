@@ -16,16 +16,17 @@ export interface IMonthlyStackProps {
 
 export type IData = {
   date: string;
-  quoteList: {
-    page: number;
-    quote: string;
-  }[];
+  quoteList: QuoteCardData[];
 }[];
 
-export interface IQuoteCardProps {
+export interface QuoteCardData {
+  _id: string;
   quote: string;
   page: number;
-  handleQuoteDelete: (quote: string) => void;
+}
+
+export interface IQuoteCardProps extends QuoteCardData {
+  handleQuoteDelete: (_id: string) => void;
 }
 
 export interface IQuoteCreateCardProps {

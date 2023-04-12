@@ -3,17 +3,16 @@ import { theme } from "style";
 import { IQuoteCardProps } from "type";
 import * as S from "./QuoteCard.styles";
 
-function QuoteCard({ quote, page, handleQuoteDelete }: IQuoteCardProps) {
-  // 삭제 quote 데이터를 위로 올려주는`
+function QuoteCard({ _id, quote, page, handleQuoteDelete }: IQuoteCardProps) {
+  // 삭제 quote id를 상위 컴포넌트로 올려주는 핸들러
   const handleDeleteClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLDivElement;
-    const { innerText } = target.closest(".quote")
-      ?.children[0] as HTMLDivElement;
-
-    handleQuoteDelete(innerText);
+    const card = target.closest(".quote") as HTMLDivElement;
+    const { _id } = card.dataset;
+    !!_id && handleQuoteDelete(_id);
   };
   return (
-    <S.Container className="quote">
+    <S.Container className="quote" data-_id={_id}>
       <S.Quote>{quote}</S.Quote>
       <S.Page>{`p. ${page}`}</S.Page>
       <S.DeleteButton onClick={handleDeleteClick}>

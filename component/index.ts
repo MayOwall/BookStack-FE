@@ -20,6 +20,7 @@ import SignupTemplate from "./template/Signup/SignupTemplate";
 import SigninTemplate from "./template/Signin/SigninTemplate";
 import StackTemplate from "./template/Stack/StackTemplate";
 import StackDetailTemplate from "./template/StackDetail/StackDetail";
+import StackCreateTemplate from "./template/StackCreate/StackCreate";
 
 export {
   Input,
@@ -37,4 +38,5 @@ export {
   SigninTemplate,
   StackTemplate,
   StackDetailTemplate,
+  StackCreateTemplate,
 };
