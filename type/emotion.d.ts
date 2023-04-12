@@ -3,26 +3,33 @@ import "@emotion/react";
 declare module "@emotion/react" {
   export interface Theme {
     font: {
-      "x-small-bold": string;
-      "x-small-light": string;
-      "small-bold": string;
+      "xsmall-light": string;
+      "xsmall-bold": string;
       "small-light": string;
-      "medium-bold": string;
+      "small-bold": string;
       "medium-light": string;
-      "large-bold": string;
+      "medium-bold": string;
       "large-light": string;
+      "large-bold": string;
+      "xlarge-light": string;
+      "xlarge-bold": string;
+      "xxlarge-light": string;
+      "xxlarge-bold": string;
     };
     color: {
-      white: string;
-      lightgray: string;
-      darkgray: string;
-      black: string;
+      light: {
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+      };
+      dark: {
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+      };
       alert: string;
-    };
-    borderRadius: {
-      atom: string;
-      molecule: string;
-      organism: string;
     };
   }
 }
