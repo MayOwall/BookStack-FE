@@ -4,14 +4,18 @@ interface IButtonProps {
   buttonType: "smallFill" | "smallLine" | "largeFill" | "largeLine";
   children: string;
   width?: string;
-  onClick: (e: React.MouseEvent) => void;
+  onClick: () => void;
 }
 function Button({ buttonType, children, width, onClick }: IButtonProps) {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onClick();
+  };
   return (
     <S.Container
       width={width || "fit-content"}
       style={S.ButtonStyle[buttonType]}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {children}
     </S.Container>

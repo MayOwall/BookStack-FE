@@ -21,7 +21,6 @@ const globalStyle = css`
     max-width: 450px;
     width: 100%;
     height: 100%;
-    background-color: white;
   }
   body > div > div {
     width: 100%;

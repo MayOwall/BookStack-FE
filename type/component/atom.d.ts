@@ -11,28 +11,24 @@ export interface IRoundButtonProps extends EButtonProps {
   onClick: () => void;
 }
 
-export interface ELabelProps extends EInputProps, ELineProps {}
-
-export interface EInputProps {
-  width?: string;
-  fontSize?: string;
-}
-
 export interface ELineProps {
   isFocus: boolean;
 }
+
+export interface ELabelProps extends EInputProps, ELineProps {}
 
 export interface EAlertProps {
   isAlert: boolean;
 }
 
 export interface IInputProps extends EInputProps, EAlertProps {
-  type: "label" | "default";
-  value: string;
+  type?: "default" | "password";
+  label: string;
+  alertLabel: string;
   placeholder: string;
-  alert: string;
+  value: string;
   onChange: (v: string) => void;
-  label?: string;
+  maxLength?: number;
 }
 
 export interface INumericalDataProps {

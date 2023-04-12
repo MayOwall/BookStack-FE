@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { SigninTemplate } from "component";
 import { postSignin } from "api";
 
@@ -14,8 +14,8 @@ export default function SigninPage() {
   const [values, setValues] = useState(initValues);
   const router = useRouter();
 
-  // input alert 관리 함수
-  const setAlert = (type: "id" | "pw" | "all") => {
+  // input alert value 핸들러
+  const handleAlertValue = (type: "id" | "pw" | "all") => {
     const nextValues = {
       id: { value: values.id.value, isAlert: false },
       pw: { value: values.pw.value, isAlert: false },
@@ -32,8 +32,8 @@ export default function SigninPage() {
     setValues(() => nextValues);
   };
 
-  // 변경된 input 값 state화
-  const onChange = (type: "id" | "pw", value: string) => {
+  // 변경된 input value 핸들러
+  const handleInputValue = (type: "id" | "pw", value: string) => {
     const nextData = {
       value,
       isAlert: false,
@@ -46,19 +46,19 @@ export default function SigninPage() {
   };
 
   // submit button 클릭
-  const onSubmit = async () => {
+  const handleSubmit = async () => {
     try {
       const { id, pw } = values;
 
       // 아이디가 4글자 이상 10글자 이하인지 확인
       if (id.value.length < 4 || id.value.length > 10) {
-        setAlert("id");
+        handleAlertValue("id");
         return;
       }
 
       // 비밀번호가 8글자 이상 15글자 이하인지 확인
       if (pw.value.length < 8 || pw.value.length > 15) {
-        setAlert("pw");
+        handleAlertValue("pw");
         return;
       }
 
@@ -71,12 +71,12 @@ export default function SigninPage() {
 
       if (res.result === "no id") {
         alert("존재하지 않는 아이디입니다.");
-        setAlert("id");
+        handleAlertValue("id");
         return;
       }
       if (res.result === "uncorrect pw") {
         alert("비밀번호가 맞지 않습니다.");
-        setAlert("pw");
+        handleAlertValue("pw");
         return;
       }
       if (res.result === "error") {
@@ -96,8 +96,8 @@ export default function SigninPage() {
   return (
     <SigninTemplate
       inputValues={values}
-      onChange={onChange}
-      onSubmit={onSubmit}
+      onChange={handleInputValue}
+      handleSubmit={handleSubmit}
     />
   );
 }

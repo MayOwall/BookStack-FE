@@ -17,7 +17,7 @@ interface ISignupTemplateProps {
     type: "id" | "pw" | "pwConfirm" | "nickname",
     value: string
   ) => void;
-  onSubmit: () => void;
+  handleSubmit: () => void;
 }
 
 interface ISigninTemplateProps {
@@ -26,7 +26,7 @@ interface ISigninTemplateProps {
     pw: IValueProps;
   };
   onChange: (type: "id" | "pw", value: string) => void;
-  onSubmit: () => void;
+  handleSubmit: () => void;
 }
 
 interface StackHeaderData {
