@@ -8,6 +8,7 @@ import Button from "./atom/Button/Button";
 import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
 import QuoteCard from "./molecule/QuoteCard/QuoteCard";
 import QuoteCreateCard from "./molecule/QuoteCreateCard/QuoteCreateCard";
+import SignupSuccessModal from "./molecule/SignupSuccessModal/SignupSuccessModal";
 
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
@@ -31,6 +32,7 @@ export {
   MonthlyStack,
   QuoteCard,
   QuoteCreateCard,
+  SignupSuccessModal,
   StackHeader,
   StackList,
   BookInfo,

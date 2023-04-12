@@ -15,6 +15,7 @@ const globalStyle = css`
     }
   }
   body > div {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;

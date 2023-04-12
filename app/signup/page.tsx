@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { SignupTemplate } from "component";
+import { SignupSuccessModal, SignupTemplate } from "component";
 import { postSignup } from "api";
 
 // inputValues 초기값
@@ -15,26 +15,31 @@ const initValue = {
 export default function SignupPage() {
   const router = useRouter();
   const [values, setValues] = useState(initValue);
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   // input alert value 핸들러
   const handleAlertValue = (
     type: "id" | "pw" | "pwConfirm" | "nickname" | "all"
   ) => {
-    const nextValues = {
-      id: { value: values.id.value, isAlert: false },
-      pw: { value: values.pw.value, isAlert: false },
-      pwConfirm: { value: values.pwConfirm.value, isAlert: false },
-      nickname: { value: values.nickname.value, isAlert: false },
-    };
-    // type이 all일 때
-    if (type === "all") {
-      setValues(() => nextValues);
-      return;
-    }
+    try {
+      const nextValues = {
+        id: { value: values.id.value, isAlert: false },
+        pw: { value: values.pw.value, isAlert: false },
+        pwConfirm: { value: values.pwConfirm.value, isAlert: false },
+        nickname: { value: values.nickname.value, isAlert: false },
+      };
+      // type이 all일 때
+      if (type === "all") {
+        setValues(() => nextValues);
+        return;
+      }
 
-    // type이 all 외의 나머지일 때
-    nextValues[type].isAlert = true;
-    setValues(() => nextValues);
+      // type이 all 외의 나머지일 때
+      nextValues[type].isAlert = true;
+      setValues(() => nextValues);
+    } catch (err) {
+      console.log("error : SignupPage, handleAlertValue", err);
+    }
   };
 
   // input value 핸들러
@@ -104,18 +109,20 @@ export default function SignupPage() {
       }
 
       // 전송 결과가 success면 회원가입 성공
-      alert("회원가입 성공. 다시 로그인 해 주세요");
-      router.push("/signin");
+      setSignupSuccess(() => true);
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <SignupTemplate
-      inputValues={values}
-      onChange={handleInputValue}
-      handleSubmit={handleSubmit}
-    />
+    <>
+      {signupSuccess && <SignupSuccessModal />}
+      <SignupTemplate
+        inputValues={values}
+        onChange={handleInputValue}
+        handleSubmit={handleSubmit}
+      />
+    </>
   );
 }
