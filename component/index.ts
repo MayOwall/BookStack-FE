@@ -2,6 +2,7 @@
 import Input from "./atom/Input/Input";
 import RoundButton from "./atom/RoundButton/RoundButton";
 import NumericalData from "./atom/NumericalData/NumericalData";
+import Button from "./atom/Button/Button";
 
 // molecule
 import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
@@ -25,6 +26,7 @@ import StackCreateTemplate from "./template/StackCreate/StackCreate";
 export {
   Input,
   RoundButton,
+  Button,
   NumericalData,
   MonthlyStack,
   QuoteCard,

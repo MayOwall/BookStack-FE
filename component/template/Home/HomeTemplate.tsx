@@ -1,36 +1,51 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { RoundButton } from "component";
+import { useRef } from "react";
+import { Button } from "component";
 import * as S from "./HomeTemplate.styles";
 
 function HomeTemplate() {
   const router = useRouter();
-  const arr: number[] = [100, 84, 70, 55, 40, 30, 20, 10];
+  const ref = useRef<HTMLDivElement | null>(null);
+  const arr = Array.from({ length: 7 }, () => "BOOK STACK");
+
+  const handleLoginButton = () => {
+    router.push("/login");
+  };
+
+  const handleSignupButton = () => {
+    router.push("/signup");
+  };
+
   return (
     <S.Container>
-      <S.TitleStack>
-        {arr.map((v, idx) => (
-          <div key={idx} style={{ opacity: `${v}%` }}>
-            BOOK STACK
-          </div>
+      <S.LogoContainer ref={ref}>
+        <S.FillLogo idx={1}>BOOK STACK</S.FillLogo>
+        {arr.map((v, i) => (
+          <S.LineLogo idx={i + 1} key={i}>
+            {v}
+          </S.LineLogo>
         ))}
-      </S.TitleStack>
-      <span>독서 기록을 쌓아보세요</span>
+        <S.Push>
+          <p>PUSH</p>
+          <p>YOUR</p>
+        </S.Push>
+        <S.Own>
+          <p>OWN</p>
+          <p>BOOK</p>
+        </S.Own>
+      </S.LogoContainer>
       <S.ButtonContainer>
-        <RoundButton
-          type="fill"
-          onClick={() => router.push("/signin")}
-          height={"30px"}
+        <Button buttonType="largeLine" width="100%" onClick={handleLoginButton}>
+          LOGIN
+        </Button>
+        <Button
+          buttonType="largeFill"
+          width="100%"
+          onClick={handleSignupButton}
         >
-          Sign In
-        </RoundButton>
-        <RoundButton
-          type="line"
-          onClick={() => router.push("/signup")}
-          height={"30px"}
-        >
-          Sign Up
-        </RoundButton>
+          SIGN UP
+        </Button>
       </S.ButtonContainer>
     </S.Container>
   );
