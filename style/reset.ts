@@ -91,6 +91,7 @@ export const reset = css`
     vertical-align: baseline;
     box-sizing: border-box;
     font-stretch: 105%;
+    letter-spacing: 5%;
   }
   /* HTML5 display-role reset for older browsers */
   article,
