@@ -32,7 +32,6 @@ interface ISigninTemplateProps {
 interface StackHeaderData {
   profileImg: string;
   bookCount: number;
-  pageCount: number;
   stackType: "shelf" | "stack";
 }
 interface IStackTemplateProps {

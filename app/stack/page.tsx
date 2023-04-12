@@ -29,11 +29,11 @@ export default function StackPage() {
         alert("로그인 만료. 다시 로그인해 주세요");
         return router.push("/signin");
       }
-      const { profileImg, bookCount, pageCount, posts } = data;
+
+      const { profileImg, bookCount, posts } = data;
       const nextHeaderData: StackHeaderData = {
         profileImg,
         bookCount,
-        pageCount,
         stackType: "shelf",
       };
       setStackData(() => posts);
@@ -49,6 +49,7 @@ export default function StackPage() {
       return router.push("/signin");
     }
     getStackData();
+    return;
   }, []);
 
   return (

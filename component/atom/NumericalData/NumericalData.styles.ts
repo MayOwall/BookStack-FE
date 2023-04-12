@@ -1,18 +1,14 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  height: 65px;
+  user-select: none;
 `;
 
 export const Label = styled.div`
-  color: ${({ theme }) => theme.color.lightgray};
-  font: ${({ theme }) => theme.font["medium-light"]};
+  color: ${({ theme }) => theme.color[4]};
+  font: ${({ theme }) => theme.font["large-light"]};
 `;
 
 export const Data = styled.div`
-  position: relative;
-  top: -5px;
-  font: ${({ theme }) => theme.font["large-bold"]};
-  font-size: 30px;
-  font-weight: 700;
+  font: ${({ theme }) => theme.font["xxlarge-bold"]};
 `;

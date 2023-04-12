@@ -19,18 +19,12 @@ function StackTemplate({
   handleStackType,
   stackData,
 }: IStackTemplateProps) {
-  const { profileImg, bookCount, pageCount, stackType } = headerData;
+  const { profileImg, bookCount, stackType } = headerData;
   const [isVisible, setVisible] = useState(false);
 
   return (
     <S.Container>
-      <StackHeader
-        profileImg={profileImg}
-        bookCount={bookCount}
-        pageCount={pageCount}
-        stackType={stackType}
-        handleStackType={handleStackType}
-      />
+      <StackHeader profileImg={profileImg} bookCount={bookCount} />
       <div>
         <StackList
           stackType={stackType}
