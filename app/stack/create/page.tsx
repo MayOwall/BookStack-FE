@@ -1,6 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { StackCreateTemplate } from "component";
+import { dateFormatter } from "hooks";
+import { postStackCreate } from "api";
 
 const initBookInfo = {
   title: "",
@@ -12,6 +15,7 @@ const initBookInfo = {
 
 export default function Create() {
   const [bookInfo, setBookInfo] = useState(initBookInfo);
+  const router = useRouter();
 
   const handleBookInfo = (
     type: "title" | "author" | "publisher" | "date" | "detail",
@@ -24,8 +28,23 @@ export default function Create() {
     setBookInfo(() => nextData);
   };
 
-  const handleSubmit = () => {
-    console.log(bookInfo);
+  const handleSubmit = async () => {
+    try {
+      const nextData = {
+        ...bookInfo,
+        date: dateFormatter(new Date()),
+      };
+      const { result } = await postStackCreate(nextData);
+      if (result === "success") router.push("stack");
+    } catch (err: any) {
+      console.log(err);
+      if (err.result === "no token") {
+        alert("로그인 만료");
+        router.push("/login");
+      } else {
+        alert("에러 발생");
+      }
+    }
   };
 
   return (
