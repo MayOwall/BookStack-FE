@@ -127,6 +127,7 @@ export const ShelfBookContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: left;
+  flex-wrap: wrap-reverse;
   gap: 12px;
 `;
 
