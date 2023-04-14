@@ -32,12 +32,11 @@ interface ISigninTemplateProps {
 interface StackHeaderData {
   profileImg: string;
   bookCount: number;
-  stackType: "shelf" | "stack";
 }
+
 interface IStackTemplateProps {
   headerData: StackHeaderData;
   stackData: { month: string; stackList: IStackProps[] }[];
-  handleStackType: (v: "stack" | "shelf") => void;
 }
 
 interface IStackDetailTemplateProps {

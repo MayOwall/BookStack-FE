@@ -1,45 +1,16 @@
 "use client";
-import { useState } from "react";
-import { StackHeader, StackList, StackCreateTemplate } from "component";
+import { StackHeader, StackList } from "component";
 import { IStackTemplateProps } from "type";
 
 import * as S from "./StackTemplate.styles";
 
-const initBookInfo = {
-  no: 0,
-  title: "",
-  author: "",
-  publisher: "",
-  date: "",
-  detail: "",
-};
-
-function StackTemplate({
-  headerData,
-  handleStackType,
-  stackData,
-}: IStackTemplateProps) {
-  const { profileImg, bookCount, stackType } = headerData;
-  const [isVisible, setVisible] = useState(false);
+function StackTemplate({ headerData, stackData }: IStackTemplateProps) {
+  const { profileImg, bookCount } = headerData;
 
   return (
     <S.Container>
       <StackHeader profileImg={profileImg} bookCount={bookCount} />
-      <div>
-        <StackList
-          stackType={stackType}
-          stackData={stackData}
-          onStackClick={(v) => console.log(v)}
-        />
-      </div>
-      {isVisible && (
-        <S.CreateContainer>
-          <StackCreateTemplate
-            bookInfo={initBookInfo}
-            handleBookInfo={() => {}}
-          />
-        </S.CreateContainer>
-      )}
+      <StackList stackData={stackData}/>
     </S.Container>
   );
 }

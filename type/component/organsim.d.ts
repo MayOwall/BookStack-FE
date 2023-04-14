@@ -6,12 +6,10 @@ export interface IStackHeaderProps {
 }
 
 export interface IStackListProps {
-  stackType: "stack" | "shelf";
   stackData: {
     month: string;
     stackList: IStackProps[];
   }[];
-  onStackClick: (id: string) => void;
 }
 
 export interface IQuoteStackProps {
