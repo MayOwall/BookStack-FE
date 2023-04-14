@@ -3,7 +3,6 @@ import { useState } from "react";
 import { StackCreateTemplate } from "component";
 
 const initBookInfo = {
-  no: 0,
   title: "",
   author: "",
   publisher: "",
@@ -25,7 +24,15 @@ export default function Create() {
     setBookInfo(() => nextData);
   };
 
+  const handleSubmit = () => {
+    console.log(bookInfo);
+  };
+
   return (
-    <StackCreateTemplate bookInfo={bookInfo} handleBookInfo={handleBookInfo} />
+    <StackCreateTemplate
+      bookInfo={bookInfo}
+      handleBookInfo={handleBookInfo}
+      handleSubmit={handleSubmit}
+    />
   );
 }

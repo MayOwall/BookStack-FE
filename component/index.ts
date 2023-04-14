@@ -13,7 +13,7 @@ import SignupSuccessModal from "./molecule/SignupSuccessModal/SignupSuccessModal
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
 import StackList from "./organism/StackList/StackList";
-import BookInfo from "./organism/BookInfo/BookInfo";
+import BookInfoEditor from "./organism/BookInfoEditor/BookInfoEditor";
 import QuoteStack from "./organism/QuoteStack/QuoteStack";
 
 // template
@@ -35,7 +35,7 @@ export {
   SignupSuccessModal,
   StackHeader,
   StackList,
-  BookInfo,
+  BookInfoEditor,
   QuoteStack,
   HomeTemplate,
   SignupTemplate,

@@ -60,7 +60,7 @@ interface IStackDetailTemplateProps {
 
 interface IStackCreateTemplateProps {
   bookInfo: {
-    no: number;
+    no?: number;
     title: string;
     author: string;
     publisher: string;
@@ -71,6 +71,7 @@ interface IStackCreateTemplateProps {
     type: "title" | "author" | "publisher" | "date" | "detail",
     v: string
   ) => void;
+  handleSubmit: () => void;
 }
 
 export type {

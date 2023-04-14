@@ -19,3 +19,18 @@ export interface IQuoteStackProps {
     data: { _id?: string; quote?: string; page?: number }
   ) => void;
 }
+
+export interface IBookInfoProps {
+  bookInfo: {
+    no?: number;
+    title: string;
+    author: string;
+    publisher: string;
+    date: string;
+    detail: string;
+  };
+  handleBookInfo: (
+    type: "title" | "author" | "publisher" | "date" | "detail",
+    v: string
+  ) => void;
+}
