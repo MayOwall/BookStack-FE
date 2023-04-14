@@ -9,6 +9,7 @@ import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
 import QuoteCard from "./molecule/QuoteCard/QuoteCard";
 import QuoteCreateCard from "./molecule/QuoteCreateCard/QuoteCreateCard";
 import SignupSuccessModal from "./molecule/SignupSuccessModal/SignupSuccessModal";
+import BookDetailInfo from "./molecule/BookDetailInfo/BookDetailInfo";
 
 // organism
 import StackHeader from "./organism/StackHeader/StackHeader";
@@ -32,6 +33,7 @@ export {
   MonthlyStack,
   QuoteCard,
   QuoteCreateCard,
+  BookDetailInfo,
   SignupSuccessModal,
   StackHeader,
   StackList,

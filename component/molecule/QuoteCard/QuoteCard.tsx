@@ -1,5 +1,5 @@
 import { DeleteIcon } from "public";
-import { theme } from "style";
+import { lightMode as theme } from "style";
 import { IQuoteCardProps } from "type";
 import * as S from "./QuoteCard.styles";
 
@@ -16,7 +16,7 @@ function QuoteCard({ _id, quote, page, handleQuoteDelete }: IQuoteCardProps) {
       <S.Quote>{quote}</S.Quote>
       <S.Page>{`p. ${page}`}</S.Page>
       <S.DeleteButton onClick={handleDeleteClick}>
-        <DeleteIcon width="15px" height="15px" stroke={theme.color.lightgray} />
+        <DeleteIcon width="15px" height="15px" stroke={theme.color[2]} />
       </S.DeleteButton>
     </S.Container>
   );

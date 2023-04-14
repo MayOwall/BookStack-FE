@@ -14,8 +14,8 @@ function StackList({ stackData }: IStackListProps) {
     stackType !== v && setStackType(() => v);
   };
 
-  const handleStackClick = (_id: string) => {
-    router.push(`/stack/detail?_id=${_id}`);
+  const handleStackClick = (no: number) => {
+    router.push(`/stack/detail?no=${no}`);
   };
 
   return (
@@ -54,12 +54,12 @@ function StackList({ stackData }: IStackListProps) {
                 {stackType === "stack" && (
                   <S.StackBookContainer>
                     {stackList.map((v) => {
-                      const { _id, title, author, no, date, img } = v;
+                      const { title, author, no, date, img } = v;
                       return (
                         <S.StackBook
-                          key={_id}
+                          key={no}
                           className="stackbook"
-                          onClick={() => handleStackClick(_id)}
+                          onClick={() => handleStackClick(no)}
                         >
                           <div>
                             <span>{`# ${no.toString().padStart(3, "0")}`}</span>
@@ -81,8 +81,8 @@ function StackList({ stackData }: IStackListProps) {
                   <S.ShelfBookContainer>
                     {stackList.map((v) => (
                       <S.ShelfBook
-                        key={v._id}
-                        onClick={() => handleStackClick(v._id)}
+                        key={v.no}
+                        onClick={() => handleStackClick(v.no)}
                       >
                         {v.img && <Image src={v.img} fill alt="book image" />}
                         {!v.img && <span>{v.title}</span>}

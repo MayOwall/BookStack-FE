@@ -48,14 +48,11 @@ interface IStackDetailTemplateProps {
     date: string;
     detail: string;
   };
-  handleBookInfo: (type: string, v: string | number) => void;
   quoteData: IData;
   handleQuoteData: (
     type: "push" | "edit" | "delete",
     data: { _id?: string; quote?: string; page?: number }
   ) => void;
-  cover: string;
-  handleCover: (v: string) => void;
 }
 
 interface IStackCreateTemplateProps {
