@@ -4,9 +4,9 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
-  padding-top: 220px;
 
   overflow: auto;
 
@@ -16,21 +16,37 @@ export const Container = styled.div`
 `;
 
 export const CoverContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 250px;
+  height: 230px;
+  background-color: ${({ theme }) => theme.color[2]};
+  margin-bottom: 50px;
 `;
 
 export const BookInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 70px;
-  width: 100%;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  width: calc(100% - 64px);
   z-index: 1;
-  background-color: ${({ theme }) => theme.color.white};
-  padding: 80px 40px 0;
+  background-color: ${({ theme }) => theme.color[1]};
+  position: relative;
+  margin-bottom: 50px;
+
+  svg {
+    margin-bottom: 20px;
+  }
+`;
+
+export const BackIconBackground = styled.div`
+  position: absolute;
+  left: -6.5px;
+  top: -5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.color[4]}22;
+  opacity: 0;
+  transition: 0.2s ease-out all;
+  cursor: pointer;
+
+  :hover {
+    opacity: 100%;
+  }
 `;
