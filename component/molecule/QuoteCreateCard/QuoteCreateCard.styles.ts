@@ -1,101 +1,103 @@
 import styled from "@emotion/styled";
 
+export const Container = styled.div`
+  > button {
+    margin-top: 5px;
+  }
+`;
+
 export const Form = styled.form`
   position: relative;
-  width: 100%;
-  height: fit-content;
-  padding: 15px;
-  padding-right: 45px;
+  display: flex;
+
+  padding: 20px;
   border-radius: 10px;
-  border: 1px solid;
-  background-color: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color[4]}88;
+  background-color: ${({ theme }) => theme.color[1]};
 
-  input,
-  textarea {
-    border: none;
-    width: calc(100% - 30px);
-    outline: none;
-    resize: none;
-    word-break: break-all;
-
-    ::placeholder {
-      opacity: 50%;
-    }
+  > div:first-of-type {
+    position: relative;
+    flex-grow: 1;
   }
 
-  label {
-    display: block;
-    margin-top: 2px;
-    font: ${({ theme }) => theme.font["small-light"]};
-    color: ${({ theme }) => theme.color.lightgray};
+  textarea,
+  input {
+    width: calc(100% - 4px);
+    border: none;
+    resize: none;
+    outline: none;
+
+    ::placeholder {
+      color: ${({ theme }) => theme.color[2]};
+    }
+    ::-webkit-scrollbar {
+      display: hidden;
+    }
   }
 `;
 
 export const QuoteInput = styled.textarea`
-  font: ${({ theme }) => theme.font["small-bold"]};
-  font-size: 14px;
-  font-weight: 600;
+  height: 22px;
+  font: ${({ theme }) => theme.font["xsmall-bold"]};
+  color: ${({ theme }) => theme.color[4]};
 
-  ::-webkit-scrollbar {
-    display: hidden;
+  ::placeholder {
+    font: ${({ theme }) => theme.font["xsmall-light"]};
   }
 `;
 
 export const DummyQuoteInput = styled.div`
   position: absolute;
-  width: calc(100% - 95px);
+  width: calc(100% - 10px);
   min-height: 22px;
-  font: ${({ theme }) => theme.font["small-bold"]};
-  font-size: 14px;
-  font-weight: 600;
-  z-index: 10;
-  word-break: break-all;
+  font: ${({ theme }) => theme.font["xsmall-bold"]};
   visibility: hidden;
 `;
 
-export const PageInput = styled.input`
-  margin-top: 2px;
-  font: ${({ theme }) => theme.font["small-light"]};
-  color: ${({ theme }) => theme.color.lightgray};
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+export const NoteInput = styled.textarea`
+  height: 20px;
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+  word-break: break-all;
+  color: ${({ theme }) => theme.color[3]};
 `;
 
-export const PushButton = styled.button`
+export const DummyNote = styled.div`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  border: none;
-  border-radius: 30px;
-  padding: 1px 15px 3px 15px;
-  background-color: ${({ theme }) => theme.color.black};
-  color: ${({ theme }) => theme.color.white};
-  font: ${({ theme }) => theme.font["x-small-light"]};
-  cursor: pointer;
-  transition: 0.2s ease-out all;
+  min-height: 20px;
+  padding-left: 2px;
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+  visibility: hidden;
+`;
 
-  :hover {
-    opacity: 80%;
-  }
-  :active {
-    opacity: 80%;
+export const PageInput = styled.div`
+  display: flex;
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+  color: ${({ theme }) => theme.color[3]};
+
+  input {
+    font: ${({ theme }) => theme.font["xsmall-light"]};
+    color: ${({ theme }) => theme.color[3]};
+    ::placeholder {
+      font: ${({ theme }) => theme.font["xsmall-light"]};
+      color: ${({ theme }) => theme.color[2]};
+    }
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 `;
 
 export const CancelButton = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  padding: 1px;
-  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
   border-radius: 50%;
+  flex-shrink: 0;
   transition: 0.2s ease-out all;
+  cursor: pointer;
 
   :hover {
-    background-color: ${({ theme }) => theme.color.lightgray}55;
+    background-color: ${({ theme }) => theme.color[2]}55;
   }
 `;

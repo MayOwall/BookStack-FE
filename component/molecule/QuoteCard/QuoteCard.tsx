@@ -1,23 +1,23 @@
-import { DeleteIcon } from "public";
-import { lightMode as theme } from "style";
+import { MeatballsIcon } from "public";
 import { IQuoteCardProps } from "type";
 import * as S from "./QuoteCard.styles";
 
-function QuoteCard({ _id, quote, page, handleQuoteDelete }: IQuoteCardProps) {
-  // 삭제 quote id를 상위 컴포넌트로 올려주는 핸들러
-  const handleDeleteClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLDivElement;
-    const card = target.closest(".quote") as HTMLDivElement;
-    const { _id } = card.dataset;
-    !!_id && handleQuoteDelete(_id);
-  };
+function QuoteCard({
+  _id,
+  quote,
+  page,
+  note,
+  handleQuoteEdit,
+}: IQuoteCardProps) {
   return (
     <S.Container className="quote" data-_id={_id}>
-      <S.Quote>{quote}</S.Quote>
-      <S.Page>{`p. ${page}`}</S.Page>
-      <S.DeleteButton onClick={handleDeleteClick}>
-        <DeleteIcon width="15px" height="15px" stroke={theme.color[2]} />
-      </S.DeleteButton>
+      <div>
+        <S.Quote>{quote}</S.Quote>
+        <S.Note>{note}</S.Note>
+        <S.Page>{`p. ${page}`}</S.Page>
+      </div>
+      <MeatballsIcon />
+      <S.MeatballIconBackground onClick={() => handleQuoteEdit(_id)} />
     </S.Container>
   );
 }

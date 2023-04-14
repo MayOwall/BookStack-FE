@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { RoundButton, QuoteCard, QuoteCreateCard } from "component";
+import { Button, QuoteCard, QuoteCreateCard } from "component";
 import { dateFormatter } from "hooks";
 import { IQuoteStackProps } from "type";
 import * as S from "./QuoteStack.styles";
@@ -8,47 +8,43 @@ import * as S from "./QuoteStack.styles";
 function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
   const [isCreatingNew, setIsCreatingNew] = useState(false);
 
-  // Quote 생성 버튼 클릭 핸들러
-  const handleRoundButton = () => {
-    setIsCreatingNew((v) => !v);
-  };
-
-  // Quote 생성 취소 핸들러
-  const handleQuoteCancel = () => {
+  // Quote 생성 , 생성 취소 핸들러
+  const handleQuoteCreate = () => {
     setIsCreatingNew((v) => !v);
   };
 
   // Quote 생성 핸들러
-  const handleQuotePush = (newQuoteData: { page: number; quote: string }) => {
-    const { quote, page } = newQuoteData;
+  const handleQuotePush = (newQuoteData: {
+    page: number;
+    quote: string;
+    note: string;
+  }) => {
     const nextData = {
-      quote,
-      page,
+      date: dateFormatter(new Date()),
+      newQuoteData,
     };
-    handleQuoteData("push", nextData);
+    console.log(nextData);
+    handleQuoteCreate();
   };
 
   // Quote 삭제 핸들러
-  const handleQuoteDelete = (_id: string) => {
-    const nextData = {
-      _id,
-    };
-    handleQuoteData("delete", nextData);
-  };
+  const handleQuoteEdit = (_id: string) => {};
 
   return (
     <S.Container>
+      <S.Title>Quote Stack</S.Title>
       <S.StackContainer>
         {quoteData.map(({ date, quoteList }, i) => (
           <S.QuoteContainer key={`QuoteContainer${i}`}>
             <S.StackDate>{date}</S.StackDate>
-            {quoteList.map(({ _id, page, quote }, i) => (
+            {quoteList.map(({ _id, page, quote, note }, i) => (
               <QuoteCard
                 key={`QuoteCard${i}`}
                 _id={_id}
                 quote={quote}
                 page={page}
-                handleQuoteDelete={handleQuoteDelete}
+                note={note}
+                handleQuoteEdit={handleQuoteEdit}
               />
             ))}
           </S.QuoteContainer>
@@ -56,13 +52,17 @@ function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
         {isCreatingNew && (
           <QuoteCreateCard
             handlePush={handleQuotePush}
-            handleCancel={handleQuoteCancel}
+            handleCancel={handleQuoteCreate}
           />
         )}
         {!isCreatingNew && (
-          <RoundButton type="dash" onClick={handleRoundButton} height="24px">
-            Push New Stack
-          </RoundButton>
+          <Button
+            buttonType="smallFill"
+            width="100%"
+            onClick={handleQuoteCreate}
+          >
+            + Push new Quote
+          </Button>
         )}
       </S.StackContainer>
       <S.LineContainer>

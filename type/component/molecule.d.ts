@@ -23,13 +23,14 @@ export interface QuoteCardData {
   _id: string;
   quote: string;
   page: number;
+  note: string;
 }
 
 export interface IQuoteCardProps extends QuoteCardData {
-  handleQuoteDelete: (_id: string) => void;
+  handleQuoteEdit: (_id: string) => void;
 }
 
 export interface IQuoteCreateCardProps {
-  handlePush: (newQuoteData: { quote: string; page: number }) => void;
+  handlePush: (newQuoteData: { quote: string; page: number, note : string }) => void;
   handleCancel: () => void;
 }

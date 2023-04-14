@@ -5,11 +5,17 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+export const Title = styled.h2`
+  margin-bottom: 20px;
+  font: ${({ theme }) => theme.font["medium-bold"]};
+`;
+
 export const StackContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  gap: 10px;
+  gap: 20px;
   position: relative;
+
   width: 100%;
   z-index: 2;
 `;
@@ -19,25 +25,23 @@ export const QuoteContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  gap: 16px;
+  gap: 20px;
 `;
 
-export const StackDate = styled.div`
+export const StackDate = styled.span`
+  width: fit-content;
   position: relative;
-  width: 90px;
-  height: 24px;
-  color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) => theme.color.black};
+  padding: 3px 10px;
+  color: ${({ theme }) => theme.color[1]};
+  background-color: ${({ theme }) => theme.color[4]};
   border-radius: 30px;
   font: ${({ theme }) => theme.font["small-light"]};
-  line-height: 23px;
-  text-align: center;
 `;
 
 // Line 및 하위 JSX
 export const LineContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 15px;
   display: flex;
   flex-direction: column;
@@ -46,18 +50,18 @@ export const LineContainer = styled.div`
   z-index: 1;
 
   width: 10px;
-  height: calc(100% + 30px);
+  height: calc(100% - 50px);
 `;
 
 export const Line = styled.div`
   width: 1px;
   height: 100%;
-  background-color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color[4]};
 `;
 
 export const Dot = styled.div`
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color[4]};
   border-radius: 50%;
 `;

@@ -18,14 +18,11 @@ const globalStyle = css`
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
     max-width: 450px;
     width: 100%;
-    height: 100%;
   }
   body > div > div {
     width: 100%;
-    height: 100%;
   }
 `;
 

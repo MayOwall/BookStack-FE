@@ -14,11 +14,11 @@ const dummyBookInfo = {
 const dummyQuoteData = [
   {
     date: "2023.03.13",
-    quoteList: [{ _id: "1", quote: "123", page: 12 }],
+    quoteList: [{ _id: "1", note: "약간의 코멘트", quote: "123", page: 12 }],
   },
   {
     date: "2023.03.13",
-    quoteList: [{ _id: "1", quote: "123", page: 12 }],
+    quoteList: [{ _id: "1", note: "약간의 코멘트2", quote: "123", page: 12 }],
   },
 ];
 

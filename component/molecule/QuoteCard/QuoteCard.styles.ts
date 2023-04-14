@@ -3,37 +3,53 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  height: fit-content;
-  padding: 15px;
-  padding-right: 45px;
+  padding: 20px;
   border-radius: 10px;
-  border: 1px solid;
-  background-color: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color[2]}88;
+  background-color: ${({ theme }) => theme.color[1]};
+  display: flex;
+  gap: 20px;
+
+  > div:first-of-type {
+    flex-grow: 1;
+  }
 `;
 
 export const Quote = styled.div`
-  font: ${({ theme }) => theme.font["small-bold"]};
+  margin-bottom: 10px;
+  width: 100%;
+  font: ${({ theme }) => theme.font["xsmall-bold"]};
   font-size: 14px;
   font-weight: 600;
+`;
+
+export const Note = styled.div`
+  margin-bottom: 5px;
+  width: 100%;
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+  color: ${({ theme }) => theme.color[2]};
 `;
 
 export const Page = styled.small`
   margin-top: 2px;
   display: block;
-  font: ${({ theme }) => theme.font["small-light"]};
-  color: ${({ theme }) => theme.color.lightgray};
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+  color: ${({ theme }) => theme.color[2]};
 `;
 
-export const DeleteButton = styled.div`
+export const MeatballIconBackground = styled.div`
   position: absolute;
-  top: 15px;
-  right: 10px;
-  padding: 1px;
-  cursor: pointer;
+  right: 15px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  background-color: ${({ theme }) => theme.color[4]}22;
   transition: 0.2s ease-out all;
+  opacity: 0;
+  cursor: pointer;
 
   :hover {
-    background-color: ${({ theme }) => theme.color.lightgray}55;
+    opacity: 100%;
   }
 `;
