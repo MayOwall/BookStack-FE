@@ -15,7 +15,7 @@ function StackList({ stackData }: IStackListProps) {
   };
 
   const handleStackClick = (no: number) => {
-    router.push(`/stack/detail?no=${no}`);
+    router.push(`/stack/detail/${no}`);
   };
 
   return (

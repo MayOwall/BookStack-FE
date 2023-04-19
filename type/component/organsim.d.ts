@@ -20,15 +20,17 @@ export interface IQuoteStackProps {
   ) => void;
 }
 
+export interface BookInfoData {
+  no?: number;
+  title: string;
+  author: string;
+  publisher: string;
+  date: string;
+  detail: string;
+}
+
 export interface IBookInfoProps {
-  bookInfo: {
-    no?: number;
-    title: string;
-    author: string;
-    publisher: string;
-    date: string;
-    detail: string;
-  };
+  bookInfo: BookInfoData;
   handleBookInfo: (
     type: "title" | "author" | "publisher" | "date" | "detail",
     v: string

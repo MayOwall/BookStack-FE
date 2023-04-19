@@ -36,6 +36,20 @@ export const postStackCreate = async (body: StackCreateBody) => {
   return data;
 };
 
+export const getStackDetail = async (no: string) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return { error: "no token" };
+  }
+  const { data } = await apiClient.get(`/stack/detail/${no}`, {
+    headers: {
+      authorization: token,
+    },
+  });
+
+  return data;
+};
+
 export const postQuoteCreate = async (no: number, body: QuoteCardData) => {
   const token = localStorage.getItem("token");
   if (!token) {

@@ -20,6 +20,7 @@ import {
   IStackListProps,
   IQuoteStackProps,
   IBookInfoProps,
+  BookInfoData,
 } from "./component/organsim";
 
 import {
@@ -47,6 +48,7 @@ export type {
   IStackListProps,
   StackHeaderData,
   IBookInfoProps,
+  BookInfoData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   INumericalDataProps,
