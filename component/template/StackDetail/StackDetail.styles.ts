@@ -11,6 +11,7 @@ export const Container = styled.div`
   overflow: auto;
   background-color: ${({ theme }) => theme.color[1]};
   padding-bottom: 30px;
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -26,10 +27,9 @@ export const CoverContainer = styled.div`
 
 export const DetailContainer = styled.div`
   position: relative;
-  background-color: ${({ theme }) => theme.color[1]};
   width: calc(100% - 64px);
   height: fit-content;
-  margin-bottom: 50px;
+  background-color: ${({ theme }) => theme.color[1]};
 `;
 
 export const IconContainer = styled.div`

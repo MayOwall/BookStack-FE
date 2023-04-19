@@ -8,48 +8,51 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.color[2]}88;
   background-color: ${({ theme }) => theme.color[1]};
   display: flex;
-  gap: 20px;
+  gap: 10px;
 
   > div:first-of-type {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 `;
 
+export const Date = styled.div`
+  color: ${({ theme }) => theme.color[3]};
+  font: ${({ theme }) => theme.font["xsmall-light"]};
+`;
+
 export const Quote = styled.div`
-  margin-bottom: 10px;
   width: 100%;
   font: ${({ theme }) => theme.font["xsmall-bold"]};
-  font-size: 14px;
-  font-weight: 600;
 `;
 
 export const Note = styled.div`
-  margin-bottom: 5px;
-  width: 100%;
   font: ${({ theme }) => theme.font["xsmall-light"]};
   color: ${({ theme }) => theme.color[2]};
 `;
 
-export const Page = styled.small`
-  margin-top: 2px;
-  display: block;
-  font: ${({ theme }) => theme.font["xsmall-light"]};
+export const Page = styled.div`
   color: ${({ theme }) => theme.color[2]};
+  font: ${({ theme }) => theme.font["xsmall-light"]};
 `;
 
-export const MeatballIconBackground = styled.div`
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  width: 24px;
-  height: 24px;
+export const MeatballContainer = styled.div`
+  box-sizing: content-box;
+  position: relative;
+  top: -3px;
+  padding: 3px;
+  height: fit-content;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.color[4]}22;
-  transition: 0.2s ease-out all;
-  opacity: 0;
   cursor: pointer;
 
   :hover {
-    opacity: 100%;
+    background-color: ${({ theme }) => theme.color[2]}44;
   }
 `;
