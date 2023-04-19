@@ -5,7 +5,7 @@ import { dateFormatter } from "hooks";
 import { IQuoteStackProps } from "type";
 import * as S from "./QuoteStack.styles";
 
-function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
+function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
   const [isCreatingNew, setIsCreatingNew] = useState(false);
 
   // Quote 생성 , 생성 취소 핸들러
@@ -34,26 +34,23 @@ function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
     <S.Container>
       <S.Title>Quote Stack</S.Title>
       <S.StackContainer>
-        {quoteData.map(({ date, quoteList }, i) => (
-          <S.QuoteContainer key={`QuoteContainer${i}`}>
-            <S.StackDate>{date}</S.StackDate>
-            {quoteList.map(({ _id, page, quote, note }, i) => (
-              <QuoteCard
-                key={`QuoteCard${i}`}
-                _id={_id}
-                quote={quote}
-                page={page}
-                note={note}
-                handleQuoteEdit={handleQuoteEdit}
-              />
-            ))}
-          </S.QuoteContainer>
+        {quoteList.map((data, i) => (
+          <QuoteCard
+            key={`QuoteCard${i}`}
+            data={data}
+            handleQuoteEdit={handleQuoteEdit}
+          />
         ))}
         {isCreatingNew && (
-          <QuoteCreateCard
-            handlePush={handleQuotePush}
-            handleCancel={handleQuoteCreate}
-          />
+          <>
+            <QuoteCreateCard
+              handlePush={handleQuotePush}
+              handleCancel={handleQuoteCreate}
+            />
+            <Button buttonType="smallFill" width="100%" onClick={() => {}}>
+              Push New Quote
+            </Button>
+          </>
         )}
         {!isCreatingNew && (
           <Button
@@ -61,7 +58,7 @@ function QuoteStack({ quoteData, handleQuoteData }: IQuoteStackProps) {
             width="100%"
             onClick={handleQuoteCreate}
           >
-            + Push new Quote
+            Create new Quote
           </Button>
         )}
       </S.StackContainer>

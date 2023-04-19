@@ -6,13 +6,14 @@ import * as S from "./StackDetail.styles";
 
 function StackDetailTemplate({
   bookInfo,
-  quoteData,
+  quoteList,
   handleQuoteData,
 }: IStackDetailTemplateProps) {
   const router = useRouter();
   const handleBackIcon = () => {
     router.back();
   };
+
   const handleMeathballIcon = () => {};
   return (
     <S.Container>
@@ -24,7 +25,7 @@ function StackDetailTemplate({
           <S.MeatballIconBackground onClick={handleMeathballIcon} />
         </S.IconContainer>
         <BookDetailInfo bookInfo={bookInfo} />
-        <QuoteStack quoteData={quoteData} handleQuoteData={handleQuoteData} />
+        <QuoteStack quoteList={quoteList} handleQuoteData={handleQuoteData} />
       </S.DetailContainer>
     </S.Container>
   );

@@ -1,12 +1,15 @@
 import { useState, useRef } from "react";
 import { Button } from "component";
 import { DeleteIcon } from "public";
-import { IQuoteCreateCardProps } from "@/type";
+import { IQuoteCreateCardProps } from "type";
+import { dateFormatter } from "hooks";
 import { lightMode as theme } from "style";
 import * as S from "./QuoteCreateCard.styles";
 
 function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
   const [newQuoteData, setNewQuoteData] = useState({
+    _id: "",
+    date: dateFormatter(new Date()),
     quote: "",
     note: "",
     page: "",

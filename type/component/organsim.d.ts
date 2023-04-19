@@ -1,4 +1,4 @@
-import { IStackProps, IData } from "./molecule.d";
+import { IStackProps, IQuoteCardData, IQuoteCardProps } from "./molecule.d";
 
 export interface IStackHeaderProps {
   profileImg: string;
@@ -13,10 +13,10 @@ export interface IStackListProps {
 }
 
 export interface IQuoteStackProps {
-  quoteData: IData;
+  quoteList: QuoteCardData[];
   handleQuoteData: (
     type: "push" | "edit" | "delete",
-    data: { _id?: string; quote?: string; page?: number }
+    data: QuoteCardData
   ) => void;
 }
 

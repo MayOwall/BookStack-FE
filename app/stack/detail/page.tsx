@@ -13,12 +13,18 @@ const dummyBookInfo = {
 
 const dummyQuoteData = [
   {
+    _id: "1",
     date: "2023.03.13",
-    quoteList: [{ _id: "1", note: "약간의 코멘트", quote: "123", page: 12 }],
+    quote: "123",
+    page: 12,
+    note: "약간의 코멘트",
   },
   {
+    _id: "2",
     date: "2023.03.13",
-    quoteList: [{ _id: "1", note: "약간의 코멘트2", quote: "123", page: 12 }],
+    quote: "123",
+    page: 12,
+    note: "약간의 코멘트",
   },
 ];
 
@@ -28,7 +34,7 @@ export default function StackDetailPage() {
   return (
     <StackDetailTemplate
       bookInfo={dummyBookInfo}
-      quoteData={dummyQuoteData}
+      quoteList={dummyQuoteData}
       handleQuoteData={handleQuoteData}
     />
   );

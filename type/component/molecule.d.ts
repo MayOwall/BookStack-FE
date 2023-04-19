@@ -14,23 +14,20 @@ export interface IMonthlyStackProps {
   onStackClick: (id: string) => void;
 }
 
-export type IData = {
-  date: string;
-  quoteList: QuoteCardData[];
-}[];
-
 export interface QuoteCardData {
   _id: string;
+  date: string;
   quote: string;
   page: number;
   note: string;
 }
 
-export interface IQuoteCardProps extends QuoteCardData {
+export interface IQuoteCardProps {
+  data: QuoteCardData;
   handleQuoteEdit: (_id: string) => void;
 }
 
 export interface IQuoteCreateCardProps {
-  handlePush: (newQuoteData: { quote: string; page: number, note : string }) => void;
+  handlePush: (newQuoteData: QuoteCardData) => void;
   handleCancel: () => void;
 }

@@ -17,6 +17,7 @@ const globalStyle = css`
   body > div {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
     max-width: 450px;
     width: 100%;

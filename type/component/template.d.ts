@@ -1,6 +1,6 @@
 import { IStackHeaderProps } from "./organsim";
 import { IStackProps } from "./molecule";
-import { IData } from "./molecule";
+import { QuoteCardData } from "./molecule";
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -48,10 +48,10 @@ interface IStackDetailTemplateProps {
     date: string;
     detail: string;
   };
-  quoteData: IData;
+  quoteList: QuoteCardDatap[];
   handleQuoteData: (
     type: "push" | "edit" | "delete",
-    data: { _id?: string; quote?: string; page?: number }
+    data: QuoteCardData
   ) => void;
 }
 

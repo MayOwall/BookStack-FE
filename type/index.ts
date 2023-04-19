@@ -2,7 +2,6 @@ import {
   EButtonProps,
   IRoundButtonProps,
   ELabelProps,
-  EInputProps,
   ELineProps,
   EAlertProps,
   IInputProps,
@@ -13,6 +12,7 @@ import {
   IMonthlyStackProps,
   IQuoteCardProps,
   IQuoteCreateCardProps,
+  QuoteCardData,
 } from "./component/molecule";
 
 import {
@@ -35,10 +35,10 @@ export type {
   EButtonProps,
   IRoundButtonProps,
   ELabelProps,
-  EInputProps,
   ELineProps,
   EAlertProps,
   IInputProps,
+  QuoteCardData,
   IMonthlyStackProps,
   IQuoteCardProps,
   IQuoteCreateCardProps,
