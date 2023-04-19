@@ -89,8 +89,9 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
     <S.Container>
       <S.Form onSubmit={handleSubmit}>
         <div>
+          <S.Date>{newQuoteData.date}</S.Date>
           <S.QuoteInput
-            placeholder="새로 기록하고 싶은 글을 입력해 주세요 (최대 150글자)"
+            placeholder="책 내용 / 명언 (최대 150글자)"
             maxLength={150}
             style={quoteInputStyle}
             ref={quoteRef}
@@ -101,7 +102,7 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
             {newQuoteData.quote}
           </S.DummyQuoteInput>
           <S.NoteInput
-            placeholder="코멘트를 입력해 주세요 (최대 150자)"
+            placeholder="코멘트 (최대 150자)"
             value={newQuoteData.note}
             onChange={handleNoteInput}
             ref={noteRef}
@@ -114,7 +115,7 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
             <input
               value={newQuoteData.page}
               onChange={handlePageInput}
-              placeholder="페이지를 입력해주세요"
+              placeholder="페이지"
               type="number"
             />
           </S.PageInput>
@@ -124,7 +125,7 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
         </S.CancelButton>
       </S.Form>
       <Button buttonType="smallFill" width="100%" onClick={handleSubmit}>
-        + Push new Quote
+        Push new Quote
       </Button>
     </S.Container>
   );
