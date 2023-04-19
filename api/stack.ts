@@ -72,3 +72,26 @@ export const postQuoteCreate = async (no: number, body: QuoteCardData) => {
 
   return data;
 };
+
+export const postQuoteDelete = async (no: string, _id: string) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return { error: "no token" };
+  }
+  const nextData = {
+    no,
+    _id,
+  };
+
+  const { data } = await apiClient.post(
+    "/stack/detail/quote/delete",
+    nextData,
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+
+  return data;
+};
