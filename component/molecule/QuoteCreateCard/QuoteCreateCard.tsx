@@ -87,6 +87,9 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
 
   return (
     <S.Container>
+      <Button buttonType="smallFill" width="100%" onClick={handleSubmit}>
+        Push new Quote
+      </Button>
       <S.Form onSubmit={handleSubmit}>
         <div>
           <S.Date>{newQuoteData.date}</S.Date>
@@ -124,9 +127,6 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
           <DeleteIcon width="17px" height="17px" stroke={theme.color[2]} />
         </S.CancelButton>
       </S.Form>
-      <Button buttonType="smallFill" width="100%" onClick={handleSubmit}>
-        Push new Quote
-      </Button>
     </S.Container>
   );
 }

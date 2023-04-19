@@ -34,6 +34,8 @@ function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
     <S.Container>
       <S.Title>Quote Stack</S.Title>
       <S.StackContainer>
+        <small>{quoteList.length ? "BOTTOM" : "NO QUOTE"}</small>
+
         {quoteList.map((data, i) => (
           <QuoteCard
             key={`QuoteCard${i}`}
@@ -42,15 +44,10 @@ function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
           />
         ))}
         {isCreatingNew && (
-          <>
-            <QuoteCreateCard
-              handlePush={handleQuotePush}
-              handleCancel={handleQuoteCreate}
-            />
-            <Button buttonType="smallFill" width="100%" onClick={() => {}}>
-              Push New Quote
-            </Button>
-          </>
+          <QuoteCreateCard
+            handlePush={handleQuotePush}
+            handleCancel={handleQuoteCreate}
+          />
         )}
         {!isCreatingNew && (
           <Button
@@ -62,10 +59,6 @@ function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
           </Button>
         )}
       </S.StackContainer>
-      <S.LineContainer>
-        <S.Line />
-        <S.Dot />
-      </S.LineContainer>
     </S.Container>
   );
 }

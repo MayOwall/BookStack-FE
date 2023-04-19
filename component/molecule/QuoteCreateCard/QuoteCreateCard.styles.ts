@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const Form = styled.form`
   position: relative;
   display: flex;
   gap: 5px;
 
-  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 20px;
   border: 1px solid ${({ theme }) => theme.color[4]}88;
   border-radius: 10px;
