@@ -34,7 +34,6 @@ export default function StackPage() {
       const nextHeaderData: StackHeaderData = {
         profileImg,
         bookCount,
-        stackType: "shelf",
       };
       setStackData(() => posts);
       setHeaderData(() => nextHeaderData);
@@ -55,11 +54,7 @@ export default function StackPage() {
   return (
     <>
       {!!stackData && !!headerData && (
-        <StackTemplate
-          headerData={headerData}
-          handleStackType={handleStackType}
-          stackData={stackData}
-        />
+        <StackTemplate headerData={headerData} stackData={stackData} />
       )}
     </>
   );

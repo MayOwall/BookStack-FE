@@ -1,30 +1,17 @@
 "use client";
 import { useState } from "react";
 import { Button, QuoteCard, QuoteCreateCard } from "component";
-import { dateFormatter } from "hooks";
-import { IQuoteStackProps } from "type";
+import { IQuoteStackProps, QuoteCardData } from "type";
 import * as S from "./QuoteStack.styles";
 
 function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
   const [isCreatingNew, setIsCreatingNew] = useState(false);
 
-  // Quote 생성 , 생성 취소 핸들러
-  const handleQuoteCreate = () => {
-    setIsCreatingNew((v) => !v);
-  };
-
   // Quote 생성 핸들러
-  const handleQuotePush = (newQuoteData: {
-    page: number;
-    quote: string;
-    note: string;
-  }) => {
-    const nextData = {
-      date: dateFormatter(new Date()),
-      newQuoteData,
-    };
-    console.log(nextData);
-    handleQuoteCreate();
+  const handleQuotePush = (newQuoteData: QuoteCardData) => {
+    setIsCreatingNew((v) => !v);
+    // 현재 quoteList에 새 quoteList 추가
+    handleQuoteData("push", newQuoteData);
   };
 
   // Quote 삭제 핸들러
@@ -43,17 +30,19 @@ function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
             handleQuoteEdit={handleQuoteEdit}
           />
         ))}
+
         {isCreatingNew && (
           <QuoteCreateCard
             handlePush={handleQuotePush}
-            handleCancel={handleQuoteCreate}
+            handleCancel={() => setIsCreatingNew((v) => !v)}
           />
         )}
+
         {!isCreatingNew && (
           <Button
             buttonType="smallFill"
             width="100%"
-            onClick={handleQuoteCreate}
+            onClick={() => setIsCreatingNew((v) => !v)}
           >
             Create new Quote
           </Button>

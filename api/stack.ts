@@ -1,4 +1,5 @@
 import apiClient from "./apiClient";
+import { QuoteCardData } from "type";
 interface StackCreateBody {
   title: string;
   author: string;
@@ -31,6 +32,29 @@ export const postStackCreate = async (body: StackCreateBody) => {
       authorization: token,
     },
   });
+
+  return data;
+};
+
+export const postQuoteCreate = async (no: number, body: QuoteCardData) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return { error: "no token" };
+  }
+  const nextData = {
+    no,
+    body,
+  };
+
+  const { data } = await apiClient.post(
+    "/stack/detail/quote/create",
+    nextData,
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
 
   return data;
 };

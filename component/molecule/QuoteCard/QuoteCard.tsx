@@ -10,7 +10,7 @@ function QuoteCard({ data, handleQuoteEdit }: IQuoteCardProps) {
         <S.Date>{date}</S.Date>
         <S.Quote>{quote}</S.Quote>
         <S.Note>{note}</S.Note>
-        <S.Page>{`p. ${page}`}</S.Page>
+        <S.Page>{!!page ? `p. ${page}` : "페이지 없음"}</S.Page>
       </div>
       <S.MeatballContainer>
         <MeatballsIcon />

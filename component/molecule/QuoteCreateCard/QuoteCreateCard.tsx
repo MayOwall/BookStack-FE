@@ -6,14 +6,16 @@ import { dateFormatter } from "hooks";
 import { lightMode as theme } from "style";
 import * as S from "./QuoteCreateCard.styles";
 
+const initQuoteData = {
+  _id: "",
+  date: dateFormatter(new Date()),
+  quote: "",
+  note: "",
+  page: "",
+};
+
 function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
-  const [newQuoteData, setNewQuoteData] = useState({
-    _id: "",
-    date: dateFormatter(new Date()),
-    quote: "",
-    note: "",
-    page: "",
-  });
+  const [newQuoteData, setNewQuoteData] = useState(initQuoteData);
   const [quoteInputStyle, setQuoteInputStyle] = useState<any>({});
   const [noteInputStyle, setNoteInputStyle] = useState<any>({});
   const quoteRef = useRef<HTMLTextAreaElement | null>(null);
@@ -80,7 +82,7 @@ function QuoteCreateCard({ handlePush, handleCancel }: IQuoteCreateCardProps) {
   const handleSubmit = () => {
     const nextData = {
       ...newQuoteData,
-      page: parseInt(newQuoteData.page),
+      page: parseInt(newQuoteData.page) || 0,
     };
     handlePush(nextData);
   };
