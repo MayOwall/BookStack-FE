@@ -6,28 +6,32 @@ import * as S from "./StackDetail.styles";
 
 function StackDetailTemplate({
   bookInfo,
-  quoteList,
   handleQuoteData,
+  quoteCards,
 }: IStackDetailTemplateProps) {
   const router = useRouter();
   const handleBackIcon = () => {
     router.back();
   };
-
   const handleMeathballIcon = () => {};
   return (
-    <S.Container>
-      <S.CoverContainer></S.CoverContainer>
-      <S.DetailContainer>
-        <S.IconContainer>
-          <BackIcon /> <MeatballsIcon />
-          <S.BackIconBackground onClick={handleBackIcon} />
-          <S.MeatballIconBackground onClick={handleMeathballIcon} />
-        </S.IconContainer>
-        <BookDetailInfo bookInfo={bookInfo} />
-        <QuoteStack quoteList={quoteList} handleQuoteData={handleQuoteData} />
-      </S.DetailContainer>
-    </S.Container>
+    <>
+      <S.Container>
+        <S.CoverContainer></S.CoverContainer>
+        <S.DetailContainer>
+          <S.IconContainer>
+            <BackIcon /> <MeatballsIcon />
+            <S.BackIconBackground onClick={handleBackIcon} />
+            <S.MeatballIconBackground onClick={handleMeathballIcon} />
+          </S.IconContainer>
+          <BookDetailInfo bookInfo={bookInfo} />
+          <QuoteStack
+            quoteCards={quoteCards}
+            handleQuoteData={handleQuoteData}
+          />
+        </S.DetailContainer>
+      </S.Container>
+    </>
   );
 }
 export default StackDetailTemplate;

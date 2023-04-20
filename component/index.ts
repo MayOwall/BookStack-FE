@@ -16,6 +16,7 @@ import StackHeader from "./organism/StackHeader/StackHeader";
 import StackList from "./organism/StackList/StackList";
 import BookInfoEditor from "./organism/BookInfoEditor/BookInfoEditor";
 import QuoteStack from "./organism/QuoteStack/QuoteStack";
+import BottomUpModal from "./organism/BottomUpModal/BottomUpModal";
 
 // template
 import HomeTemplate from "./template/Home/HomeTemplate";
@@ -39,6 +40,7 @@ export {
   StackList,
   BookInfoEditor,
   QuoteStack,
+  BottomUpModal,
   HomeTemplate,
   SignupTemplate,
   SigninTemplate,

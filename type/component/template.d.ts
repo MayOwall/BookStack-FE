@@ -48,11 +48,11 @@ interface IStackDetailTemplateProps {
     date: string;
     detail: string;
   };
-  quoteList: QuoteCardDatap[];
   handleQuoteData: (
     type: "push" | "edit" | "delete",
     data: QuoteCardData
   ) => void;
+  quoteCards: JSX.Element;
 }
 
 interface IStackCreateTemplateProps {

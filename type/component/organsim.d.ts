@@ -13,7 +13,7 @@ export interface IStackListProps {
 }
 
 export interface IQuoteStackProps {
-  quoteList: QuoteCardData[];
+  quoteCards: JSX.Element;
   handleQuoteData: (
     type: "push" | "edit" | "delete",
     data: QuoteCardData

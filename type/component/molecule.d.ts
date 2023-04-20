@@ -24,7 +24,7 @@ export interface QuoteCardData {
 
 export interface IQuoteCardProps {
   data: QuoteCardData;
-  handleQuoteEdit: (_id: string) => void;
+  handleMeatball: (quoteCardId: string) => void;
 }
 
 export interface IQuoteCreateCardProps {

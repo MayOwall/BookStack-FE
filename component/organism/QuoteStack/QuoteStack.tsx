@@ -4,7 +4,7 @@ import { Button, QuoteCard, QuoteCreateCard } from "component";
 import { IQuoteStackProps, QuoteCardData } from "type";
 import * as S from "./QuoteStack.styles";
 
-function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
+function QuoteStack({ quoteCards, handleQuoteData }: IQuoteStackProps) {
   const [isCreatingNew, setIsCreatingNew] = useState(false);
 
   // Quote 생성 핸들러
@@ -14,22 +14,15 @@ function QuoteStack({ quoteList, handleQuoteData }: IQuoteStackProps) {
     handleQuoteData("push", newQuoteData);
   };
 
-  // Quote 삭제 핸들러
-  const handleQuoteEdit = (_id: string) => {};
-
   return (
     <S.Container>
       <S.Title>Quote Stack</S.Title>
       <S.StackContainer>
-        <small>{quoteList.length ? "BOTTOM" : "NO QUOTE"}</small>
+        <small>
+          {quoteCards.props.children.length ? "BOTTOM" : "NO QUOTE"}
+        </small>
 
-        {quoteList.map((data, i) => (
-          <QuoteCard
-            key={`QuoteCard${i}`}
-            data={data}
-            handleQuoteEdit={handleQuoteEdit}
-          />
-        ))}
+        {!!quoteCards && quoteCards}
 
         {isCreatingNew && (
           <QuoteCreateCard
