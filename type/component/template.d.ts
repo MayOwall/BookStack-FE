@@ -1,4 +1,4 @@
-import { IStackHeaderProps } from "./organsim";
+import { BookInfoData, IStackHeaderProps } from "./organsim";
 import { IStackProps } from "./molecule";
 import { QuoteCardData } from "./molecule";
 interface IValueProps {
@@ -53,6 +53,7 @@ interface IStackDetailTemplateProps {
     data: QuoteCardData
   ) => void;
   quoteCards: JSX.Element;
+  handleBookInfoMeatball: () => void;
 }
 
 interface IStackCreateTemplateProps {

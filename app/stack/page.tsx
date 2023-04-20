@@ -27,7 +27,7 @@ export default function StackPage() {
       const data = await getStack();
       if (data.error) {
         alert("로그인 만료. 다시 로그인해 주세요");
-        return router.push("/signin");
+        return router.push("/login");
       }
 
       const { profileImg, bookCount, posts } = data;

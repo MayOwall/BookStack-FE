@@ -1,20 +1,33 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useRef, useState, useLayoutEffect, useEffect } from "react";
-import { StackDetailTemplate, QuoteCard, BottomUpModal } from "component";
+import {
+  StackDetailTemplate,
+  QuoteCard,
+  BottomUpModal,
+  ConfirmModal,
+} from "component";
 import { QuoteCardData, BookInfoData as temp } from "type";
-import { getStackDetail, postQuoteCreate, postQuoteDelete } from "api";
+import {
+  deleteStackDetail,
+  getStackDetail,
+  postQuoteCreate,
+  postQuoteDelete,
+} from "api";
 
 interface BookInfoData extends temp {
   no: number;
 }
 
 export default function StackDetailPage() {
+  const router = useRouter();
   const [bookInfo, setBookInfo] = useState<BookInfoData | null>(null);
   const [quoteList, setQuoteList] = useState<QuoteCardData[] | null>(null);
   const no = usePathname().replace("/stack/detail/", "");
   const [quoteCards, setQuoteCards] = useState<JSX.Element | null>(null);
   const [isQuoteModalShown, setQuoteModalShown] = useState(false);
+  const [isBookInfoModalShown, setBookInfoModalShown] = useState(false);
+  const [isConfirmModalShown, setConfirmModalShown] = useState(false);
   const selectedQuote = useRef<any>(null);
 
   // quoteModal용 prop
@@ -33,6 +46,58 @@ export default function StackDetailPage() {
       },
     },
   ];
+
+  // bookInfoModal용 prop
+  const bookInfoModalItems = [
+    {
+      content: "Edit",
+      onClick: () => {
+        setBookInfoModalShown(false);
+      },
+    },
+    {
+      content: "Share",
+      onClick: () => {
+        setBookInfoModalShown(false);
+      },
+    },
+    {
+      content: "Delete",
+      onClick: () => {
+        setBookInfoModalShown(false);
+        setConfirmModalShown(true);
+      },
+    },
+  ];
+
+  // BookInfo 미트볼 아이콘 클릭 핸들러
+  const handleBookInfoMeatball = () => {
+    setBookInfoModalShown(true);
+  };
+
+  // ConfirmModal 핸들러
+  const handleConfirmModal = async (type: "cancel" | "confirm") => {
+    if (type === "cancel") {
+      return setConfirmModalShown(false);
+    }
+    if (type === "confirm") {
+      await handleBookInfoData("delete");
+      setConfirmModalShown(false);
+      alert("삭제 완료 🗑");
+      router.push("/stack");
+    }
+  };
+
+  const handleBookInfoData = async (type: "edit" | "share" | "delete") => {
+    if (type === "delete") {
+      try {
+        await deleteStackDetail(no);
+        return;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 
   // quoteData 핸들러
   const handleQuoteData = async (
@@ -140,12 +205,26 @@ export default function StackDetailPage() {
           bookInfo={bookInfo}
           quoteCards={quoteCards}
           handleQuoteData={handleQuoteData}
+          handleBookInfoMeatball={handleBookInfoMeatball}
         />
       )}
       {isQuoteModalShown && (
         <BottomUpModal
           items={quoteModalItems}
           cancel={() => setQuoteModalShown(false)}
+        />
+      )}
+      {isBookInfoModalShown && (
+        <BottomUpModal
+          items={bookInfoModalItems}
+          cancel={() => setBookInfoModalShown(false)}
+        />
+      )}
+      {isConfirmModalShown && (
+        <ConfirmModal
+          title="이 책을 삭제하시겠어요?"
+          content="한번 삭제하면 되돌릴 수 없어요"
+          handleConfirmModal={handleConfirmModal}
         />
       )}
     </>

@@ -8,12 +8,12 @@ function StackDetailTemplate({
   bookInfo,
   handleQuoteData,
   quoteCards,
+  handleBookInfoMeatball,
 }: IStackDetailTemplateProps) {
   const router = useRouter();
   const handleBackIcon = () => {
     router.back();
   };
-  const handleMeathballIcon = () => {};
   return (
     <>
       <S.Container>
@@ -22,7 +22,7 @@ function StackDetailTemplate({
           <S.IconContainer>
             <BackIcon /> <MeatballsIcon />
             <S.BackIconBackground onClick={handleBackIcon} />
-            <S.MeatballIconBackground onClick={handleMeathballIcon} />
+            <S.MeatballIconBackground onClick={handleBookInfoMeatball} />
           </S.IconContainer>
           <BookDetailInfo bookInfo={bookInfo} />
           <QuoteStack

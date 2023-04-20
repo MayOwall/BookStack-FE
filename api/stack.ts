@@ -50,6 +50,20 @@ export const getStackDetail = async (no: string) => {
   return data;
 };
 
+export const deleteStackDetail = async (no: string) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return { error: "no token" };
+  }
+  const { data } = await apiClient.delete(`/stack/detail/${no}`, {
+    headers: {
+      authorization: token,
+    },
+  });
+
+  return data;
+};
+
 export const postQuoteCreate = async (no: number, body: QuoteCardData) => {
   const token = localStorage.getItem("token");
   if (!token) {

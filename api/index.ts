@@ -5,6 +5,7 @@ import {
   postStackCreate,
   postQuoteCreate,
   postQuoteDelete,
+  deleteStackDetail,
 } from "./stack";
 
 export {
@@ -15,4 +16,5 @@ export {
   postStackCreate,
   postQuoteCreate,
   postQuoteDelete,
+  deleteStackDetail
 };
