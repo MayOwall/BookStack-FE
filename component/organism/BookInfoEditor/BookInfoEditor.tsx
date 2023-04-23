@@ -13,6 +13,7 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
   const [authorStyle, setAuthorStyle] = useState<any>({});
   const [publisherStyle, setPublisherStyle] = useState<any>({});
 
+  // title 입력창 세로 길이 자동 조정
   useEffect(() => {
     if (titleRef.current) {
       const { offsetHeight } = titleRef.current;
@@ -22,6 +23,8 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
       setTitleStyle(() => nextData);
     }
   }, [title]);
+
+  // author 입력창 가로 길이 자동 조정
   useEffect(() => {
     if (authorRef.current) {
       const { offsetWidth } = authorRef.current.children[1] as HTMLDivElement;
@@ -33,6 +36,7 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
     }
   }, [author]);
 
+  // publisher 입력창 가로 길이 자동 조정
   useEffect(() => {
     if (publisherRef.current) {
       const { offsetWidth } = publisherRef.current
@@ -47,7 +51,7 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
 
   return (
     <S.Container>
-      <S.No>No. {no ? no.toString().padStart(3, "0") : ""}</S.No>
+      <S.No>No. {no ? no.toString().padStart(3, "0") : "_"}</S.No>
       <S.Date>{date ? date : dateFormatter(new Date())}</S.Date>
       <S.Title
         value={title}

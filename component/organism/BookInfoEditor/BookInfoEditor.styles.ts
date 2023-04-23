@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Container = styled.form`
   position: relative;
   width: 100%;
+  height: fit-content;
   color: ${({ theme }) => theme.color[2]};
 
   input,
@@ -78,7 +79,6 @@ export const Publisher = styled.div`
   input {
     width: 100%;
     font: ${({ theme }) => theme.font["small-light"]};
-    color: inherit;
   }
 `;
 

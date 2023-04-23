@@ -6,7 +6,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: fit-content;
+  background-color: ${({ theme }) => theme.color[1]};
+  padding-bottom: 100px;
 
   overflow: auto;
 
