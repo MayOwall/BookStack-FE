@@ -109,3 +109,18 @@ export const postQuoteDelete = async (no: string, _id: string) => {
 
   return data;
 };
+
+export const postImage = async (type: "bookImage", formData: FormData) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return { error: "no token" };
+  }
+  const { data } = await apiClient.post("/postImage", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      authorization: token,
+    },
+  });
+
+  return data;
+};

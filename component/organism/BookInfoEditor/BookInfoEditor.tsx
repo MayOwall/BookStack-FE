@@ -1,17 +1,48 @@
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { dateFormatter } from "hooks";
 import { IBookInfoProps } from "type";
+import { postImage } from "api";
 import * as S from "./BookInfoEditor.styles";
 
 function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
   const { no, title, author, publisher, date, detail } = bookInfo;
+  const [tempBookImage, setTempBookImage] = useState("");
 
   const titleRef = useRef<HTMLDivElement | null>(null);
-  const authorRef = useRef<HTMLDivElement | null>(null);
-  const publisherRef = useRef<HTMLDivElement | null>(null);
   const [titleStyle, setTitleStyle] = useState<any>({});
-  const [authorStyle, setAuthorStyle] = useState<any>({});
-  const [publisherStyle, setPublisherStyle] = useState<any>({});
+  const bookImageRef = useRef<HTMLInputElement | null>(null);
+
+  const handleBookImageButton = () => {
+    if (bookImageRef.current) {
+      bookImageRef.current.click();
+    }
+  };
+
+  const handleBookImageInput = async (e: React.ChangeEvent) => {
+    const { files } = e.target as HTMLInputElement;
+    if (!files) return;
+    const file = files[0];
+
+    // temp img 적용;
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e: any) => {
+      if (reader.readyState === 2) {
+        setTempBookImage(() => e.target.result);
+      }
+    };
+
+    // const formData = new FormData();
+    // formData.append("image", file);
+    // try {
+    //   //
+    //   const imageRes = await postImage("bookImage", formData);
+    //   const image_URL = imageRes.data.imageURL;
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  };
 
   // title 입력창 세로 길이 자동 조정
   useEffect(() => {
@@ -23,31 +54,6 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
       setTitleStyle(() => nextData);
     }
   }, [title]);
-
-  // author 입력창 가로 길이 자동 조정
-  useEffect(() => {
-    if (authorRef.current) {
-      const { offsetWidth } = authorRef.current.children[1] as HTMLDivElement;
-
-      const nextData = {
-        width: `${offsetWidth + 5}px`,
-      };
-      setAuthorStyle(() => nextData);
-    }
-  }, [author]);
-
-  // publisher 입력창 가로 길이 자동 조정
-  useEffect(() => {
-    if (publisherRef.current) {
-      const { offsetWidth } = publisherRef.current
-        .children[1] as HTMLDivElement;
-
-      const nextData = {
-        width: `${offsetWidth + 5}px`,
-      };
-      setPublisherStyle(() => nextData);
-    }
-  }, [publisher]);
 
   return (
     <S.Container>
@@ -61,33 +67,50 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
         style={titleStyle}
       />
       <S.DummyTitle ref={titleRef}>{title}</S.DummyTitle>
-      <S.AuthPublishContainer>
-        <S.Author ref={authorRef} style={authorStyle}>
-          <input
+      <S.InfoContainer>
+        <div>
+          <S.Author
             value={author}
             onChange={(e) => handleBookInfo("author", e.target.value)}
             placeholder="Author"
             maxLength={30}
           />
-          <S.DummyAuthor className="dummy">{author}</S.DummyAuthor>
-        </S.Author>
-
-        <S.Publisher ref={publisherRef} style={publisherStyle}>
-          <input
+          <S.Publisher
             value={publisher}
             onChange={(e) => handleBookInfo("publisher", e.target.value)}
             placeholder="Publisher"
             maxLength={20}
           />
-          <S.DummyPublisher>{publisher}</S.DummyPublisher>
-        </S.Publisher>
-      </S.AuthPublishContainer>
-      <S.Detail
-        value={detail}
-        onChange={(e) => handleBookInfo("detail", e.target.value)}
-        placeholder="Book Info (최대 300자)"
-        maxLength={300}
-      />
+          <S.Detail
+            value={detail}
+            onChange={(e) => handleBookInfo("detail", e.target.value)}
+            placeholder="Book Info (최대 300자)"
+            maxLength={300}
+          />
+        </div>
+        <S.BookImageContainer onClick={handleBookImageButton}>
+          {!tempBookImage && (
+            <>
+              <div>
+                ADD
+                <br />
+                Book Image
+              </div>
+            </>
+          )}
+          {!!tempBookImage && (
+            <S.TempBookImage onClick={handleBookImageButton}>
+              <Image src={tempBookImage} fill alt="" />
+            </S.TempBookImage>
+          )}
+          <input
+            type="file"
+            ref={bookImageRef}
+            accept=".jpeg,.png"
+            onChange={handleBookImageInput}
+          />
+        </S.BookImageContainer>
+      </S.InfoContainer>
     </S.Container>
   );
 }
