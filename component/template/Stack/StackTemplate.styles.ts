@@ -7,20 +7,11 @@ export const Container = styled.section`
   align-items: center;
   gap: 50px;
   width: calc(100% - 64px);
-  height: calc(100% - 160px);
+  height: 100%;
+  padding: 80px 0;
   overflow: auto;
 
   ::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const CreateContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: ${({ theme }) => theme.color[4]}88;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
 `;

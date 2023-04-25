@@ -18,36 +18,42 @@ function HomeTemplate() {
   };
 
   return (
-    <S.Container>
-      <S.LogoContainer ref={ref}>
-        <S.FillLogo idx={1}>BOOK STACK</S.FillLogo>
-        {arr.map((v, i) => (
-          <S.LineLogo idx={i + 1} key={i}>
-            {v}
-          </S.LineLogo>
-        ))}
-        <S.Push>
-          <p>PUSH</p>
-          <p>YOUR</p>
-        </S.Push>
-        <S.Own>
-          <p>OWN</p>
-          <p>BOOK</p>
-        </S.Own>
-      </S.LogoContainer>
-      <S.ButtonContainer>
-        <Button buttonType="largeLine" width="100%" onClick={handleLoginButton}>
-          LOGIN
-        </Button>
-        <Button
-          buttonType="largeFill"
-          width="100%"
-          onClick={handleSignupButton}
-        >
-          SIGN UP
-        </Button>
-      </S.ButtonContainer>
-    </S.Container>
+    <S.Background>
+      <S.Container>
+        <S.LogoContainer ref={ref}>
+          <S.FillLogo idx={1}>BOOK STACK</S.FillLogo>
+          {arr.map((v, i) => (
+            <S.LineLogo idx={i + 1} key={i}>
+              {v}
+            </S.LineLogo>
+          ))}
+          <S.Push>
+            <p>PUSH</p>
+            <p>YOUR</p>
+          </S.Push>
+          <S.Own>
+            <p>OWN</p>
+            <p>BOOK</p>
+          </S.Own>
+        </S.LogoContainer>
+        <S.ButtonContainer>
+          <Button
+            buttonType="largeLine"
+            width="100%"
+            onClick={handleLoginButton}
+          >
+            LOGIN
+          </Button>
+          <Button
+            buttonType="largeFill"
+            width="100%"
+            onClick={handleSignupButton}
+          >
+            SIGN UP
+          </Button>
+        </S.ButtonContainer>
+      </S.Container>
+    </S.Background>
   );
 }
 
