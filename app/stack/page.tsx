@@ -12,16 +12,6 @@ export default function StackPage() {
   const [stackData, setStackData] =
     useState<{ month: string; stackList: IStackProps[] }[] | null>(null);
 
-  const handleStackType = (v: "stack" | "shelf") => {
-    if (headerData) {
-      const nextHeaderData = {
-        ...headerData,
-        stackType: v,
-      };
-      setHeaderData(() => nextHeaderData);
-    }
-  };
-
   const getStackData = async () => {
     try {
       const data = await getStack();

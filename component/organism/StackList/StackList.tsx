@@ -54,7 +54,7 @@ function StackList({ stackData }: IStackListProps) {
                 {stackType === "stack" && (
                   <S.StackBookContainer>
                     {stackList.map((v) => {
-                      const { title, author, no, date, img } = v;
+                      const { title, author, no, date, bookImage } = v;
                       return (
                         <S.StackBook
                           key={no}
@@ -67,9 +67,9 @@ function StackList({ stackData }: IStackListProps) {
                             <small>{author}</small>
                             <small>{date}</small>
                           </div>
-                          {img && (
+                          {bookImage && (
                             <S.BookImage>
-                              <Image src={img} fill alt="book image" />
+                              <Image src={bookImage} fill alt="book image" />
                             </S.BookImage>
                           )}
                         </S.StackBook>
@@ -84,8 +84,10 @@ function StackList({ stackData }: IStackListProps) {
                         key={v.no}
                         onClick={() => handleStackClick(v.no)}
                       >
-                        {v.img && <Image src={v.img} fill alt="book image" />}
-                        {!v.img && <span>{v.title}</span>}
+                        {v.bookImage && (
+                          <Image src={v.bookImage} fill alt="book image" />
+                        )}
+                        {!v.bookImage && <span>{v.title}</span>}
                       </S.ShelfBook>
                     ))}
                   </S.ShelfBookContainer>

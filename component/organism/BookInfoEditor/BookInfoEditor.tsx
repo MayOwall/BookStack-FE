@@ -6,7 +6,7 @@ import { postImage } from "api";
 import * as S from "./BookInfoEditor.styles";
 
 function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
-  const { no, title, author, publisher, date, detail } = bookInfo;
+  const { no, title, author, publisher, date, detail, bookImage } = bookInfo;
   const [tempBookImage, setTempBookImage] = useState("");
 
   const titleRef = useRef<HTMLDivElement | null>(null);
@@ -33,15 +33,20 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
       }
     };
 
-    // const formData = new FormData();
-    // formData.append("image", file);
-    // try {
-    //   //
-    //   const imageRes = await postImage("bookImage", formData);
-    //   const image_URL = imageRes.data.imageURL;
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    // 서버로 이미지 전송 및 url 반환
+    const formData = new FormData();
+    formData.append("image", file);
+    try {
+      const imageRes = await postImage("bookImage", formData);
+      if (imageRes.result === "success") {
+        const bookImageURL = imageRes.data.imageURL;
+        handleBookInfo("bookImage", bookImageURL);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // title 입력창 세로 길이 자동 조정
@@ -100,7 +105,12 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
           )}
           {!!tempBookImage && (
             <S.TempBookImage onClick={handleBookImageButton}>
-              <Image src={tempBookImage} fill alt="" />
+              <Image
+                src={bookImage || tempBookImage}
+                fill
+                sizes="10vw"
+                alt="book image"
+              />
             </S.TempBookImage>
           )}
           <input

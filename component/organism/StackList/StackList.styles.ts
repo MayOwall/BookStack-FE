@@ -119,6 +119,7 @@ export const BookImage = styled.div`
   img {
     border-radius: 5px;
     filter: grayscale(100%);
+    object-fit: cover;
     transition: 0.2s ease-out all;
   }
 `;
@@ -151,6 +152,7 @@ export const ShelfBook = styled.div`
   img {
     border-radius: 5px;
     filter: grayscale(100%);
+    object-fit: cover;
     transition: 0.2s ease-out all;
   }
   span {

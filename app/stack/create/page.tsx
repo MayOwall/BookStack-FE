@@ -18,7 +18,7 @@ export default function Create() {
   const router = useRouter();
 
   const handleBookInfo = (
-    type: "title" | "author" | "publisher" | "date" | "detail",
+    type: "title" | "author" | "publisher" | "date" | "detail" | "bookImage",
     v: string
   ) => {
     const nextData = {

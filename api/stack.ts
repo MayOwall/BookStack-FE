@@ -115,7 +115,7 @@ export const postImage = async (type: "bookImage", formData: FormData) => {
   if (!token) {
     return { error: "no token" };
   }
-  const { data } = await apiClient.post("/postImage", formData, {
+  const { data } = await apiClient.post("/image/upload", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
       authorization: token,

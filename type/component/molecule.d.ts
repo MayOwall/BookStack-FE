@@ -4,7 +4,7 @@ export interface IStackProps {
   title: string;
   author: string;
   date: string;
-  img: string;
+  bookImage: string;
 }
 
 export interface IMonthlyStackProps {

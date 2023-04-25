@@ -27,12 +27,13 @@ export interface BookInfoData {
   publisher: string;
   date: string;
   detail: string;
+  bookImage: string;
 }
 
 export interface IBookInfoProps {
   bookInfo: BookInfoData;
   handleBookInfo: (
-    type: "title" | "author" | "publisher" | "date" | "detail",
+    type: "title" | "author" | "publisher" | "date" | "detail" | "bookImage",
     v: string
   ) => void;
 }
