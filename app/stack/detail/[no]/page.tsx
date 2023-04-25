@@ -168,7 +168,7 @@ export default function StackDetailPage() {
     const data = await getStackDetail(no);
     if (!data) throw new Error("no such data");
 
-    const { title, author, publisher, date, detail } = data;
+    const { title, author, publisher, date, detail, bookImage } = data;
     const nextBookInfo = {
       no: Number(no),
       title,
@@ -176,6 +176,7 @@ export default function StackDetailPage() {
       publisher,
       date,
       detail,
+      bookImage,
     };
     setBookInfo(() => nextBookInfo);
     setQuoteList(() => data.quoteList);
