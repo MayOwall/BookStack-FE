@@ -2,38 +2,57 @@ import {
   EButtonProps,
   IRoundButtonProps,
   ELabelProps,
-  EInputProps,
   ELineProps,
   EAlertProps,
   IInputProps,
   INumericalDataProps,
 } from "./component/atom";
 
-import { IMonthlyStackProps } from "./component/molecule";
+import {
+  IMonthlyStackProps,
+  IQuoteCardProps,
+  IQuoteCreateCardProps,
+  QuoteCardData,
+} from "./component/molecule";
 
-import { IStackHeaderProps, IStackListProps } from "./component/organsim";
+import {
+  IStackHeaderProps,
+  IStackListProps,
+  IQuoteStackProps,
+  IBookInfoProps,
+  BookInfoData,
+} from "./component/organsim";
 
 import {
   StackHeaderData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 } from "./component/template";
 
 export type {
   EButtonProps,
   IRoundButtonProps,
   ELabelProps,
-  EInputProps,
   ELineProps,
   EAlertProps,
   IInputProps,
+  QuoteCardData,
   IMonthlyStackProps,
+  IQuoteCardProps,
+  IQuoteCreateCardProps,
+  IQuoteStackProps,
   IStackHeaderProps,
   IStackListProps,
   StackHeaderData,
+  IBookInfoProps,
+  BookInfoData,
   ISignupTemplateProps,
   ISigninTemplateProps,
   INumericalDataProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 };

@@ -23,13 +23,13 @@ export const Stack = styled.div`
   width: 100%;
   height: 150px;
   padding: 0 20px;
-  border: 1px solid ${({ theme }) => theme.color.lightgray}88;
+  border: 1px solid ${({ theme }) => theme.color[2]}88;
   border-radius: 15px;
   cursor: pointer;
   transition: 0.2s ease-out all;
 
   :hover {
-    border: 1px solid ${({ theme }) => theme.color.lightgray};
+    border: 1px solid ${({ theme }) => theme.color[2]};
   }
 
   > div:first-of-type {
@@ -52,7 +52,7 @@ export const Stack = styled.div`
 
       span {
         font: ${({ theme }) => theme.font["small-light"]};
-        color: ${({ theme }) => theme.color.lightgray};
+        color: ${({ theme }) => theme.color[2]};
         margin-right: 10px;
       }
     }
@@ -61,7 +61,7 @@ export const Stack = styled.div`
       margin-top: 10px;
       font: ${({ theme }) => theme.font["small-light"]};
       font-size: 16px;
-      color: ${({ theme }) => theme.color.lightgray};
+      color: ${({ theme }) => theme.color[2]};
     }
   }
 
@@ -76,7 +76,7 @@ export const Stack = styled.div`
     }
 
     img {
-      border: 1px solid ${({ theme }) => theme.color.lightgray}33;
+      border: 1px solid ${({ theme }) => theme.color[2]}33;
       object-fit: cover;
       border-radius: 5px;
       filter: grayscale(1);
@@ -102,16 +102,16 @@ export const Shelf = styled.div`
     flex-shrink: 0;
     width: calc(33% - 12px);
     aspect-ratio: 1 / 1.4;
-    border: 1px solid ${({ theme }) => theme.color.lightgray}44;
+    border: 1px solid ${({ theme }) => theme.color[2]}44;
     border-radius: 10px;
     cursor: pointer;
     transition: 0.2s ease-out all;
 
     :hover {
-      border: 1px solid ${({ theme }) => theme.color.lightgray};
+      border: 1px solid ${({ theme }) => theme.color[2]};
     }
     :hover > h4 {
-      color: ${({ theme }) => theme.color.darkgray};
+      color: ${({ theme }) => theme.color[3]};
     }
     :hover > img {
       filter: grayscale(0);
@@ -122,7 +122,7 @@ export const Shelf = styled.div`
       padding: 10px;
       font: ${({ theme }) => theme.font["small-light"]};
       font-weight: 400;
-      color: ${({ theme }) => theme.color.lightgray};
+      color: ${({ theme }) => theme.color[2]};
       text-align: center;
     }
 

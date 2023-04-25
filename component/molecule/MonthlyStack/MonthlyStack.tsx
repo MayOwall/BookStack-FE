@@ -23,9 +23,9 @@ function MonthlyStack({
                 </small>
                 <div># {v.no.toString().padStart(3, "0")}</div>
               </div>
-              {!!v.img && (
+              {!!v.bookImage && (
                 <div>
-                  <Image src={v.img} fill alt="bookimg" />
+                  <Image src={v.bookImage} fill alt="bookimg" />
                 </div>
               )}
             </S.Stack>
@@ -34,8 +34,10 @@ function MonthlyStack({
           {stackType === "shelf" &&
             stackList.map((v) => (
               <div key={v._id} onClick={() => onStackClick(v._id)}>
-                {!!v.img && <Image src={v.img} fill alt="bookimg" />}
-                {!v.img && <h4>{v.title}</h4>}
+                {!!v.bookImage && (
+                  <Image src={v.bookImage} fill alt="bookimg" />
+                )}
+                {!v.bookImage && <h4>{v.title}</h4>}
               </div>
             ))}
         </S.Shelf>

@@ -1,43 +1,56 @@
 import styled from "@emotion/styled";
+
 export const Container = styled.main`
-  width: calc(100% - 130px);
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 64px);
+  height: 100%;
+  padding-top: 100px;
 `;
 
 export const Header = styled.div`
+  text-align: center;
   & > h1 {
-    font: ${({ theme }) => theme.font["medium-bold"]};
+    font: ${({ theme }) => theme.font["large-bold"]};
   }
   & > h2 {
-    font: ${({ theme }) => theme.font["medium-light"]};
+    font: ${({ theme }) => theme.font["large-light"]};
   }
 `;
 
 export const Inputs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+
+  margin-top: 50px;
   width: 100%;
-  height: 326px;
-  margin-top: 54px;
 `;
 
 export const Buttons = styled.div`
-  text-align: center;
   margin-top: 30px;
+  width: 100%;
+  text-align: center;
 
-  > small {
-    display: block;
-    color: ${({ theme }) => theme.color.lightgray};
-    margin-top: 16px;
+  > div {
+    margin-top: 10px;
     font: ${({ theme }) => theme.font["small-light"]};
-
+    color: ${({ theme }) => theme.color[2]};
     a {
       text-decoration: none;
     }
     span {
-      margin-left: 4px;
-      color: ${({ theme }) => theme.color.darkgray};
+      box-sizing: content-box;
+      padding: 2px 5px;
+      color: ${({ theme }) => theme.color[4]};
+      border-radius: 3px;
+      transition: 0.2s ease-out all;
+      cursor: pointer;
+
+      :hover {
+        background-color: ${({ theme }) => theme.color[4]}22;
+      }
     }
   }
 `;

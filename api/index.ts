@@ -1,4 +1,22 @@
 import { postSignup, postSignin } from "./auth";
-import { getStack } from "./stack";
+import {
+  getStack,
+  getStackDetail,
+  postStackCreate,
+  postQuoteCreate,
+  postQuoteDelete,
+  deleteStackDetail,
+  postImage,
+} from "./stack";
 
-export { postSignup, postSignin , getStack};
+export {
+  postSignup,
+  postSignin,
+  getStack,
+  getStackDetail,
+  postStackCreate,
+  postQuoteCreate,
+  postQuoteDelete,
+  deleteStackDetail,
+  postImage,
+};

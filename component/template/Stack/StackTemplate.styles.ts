@@ -5,26 +5,13 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-  width: 100%;
+  gap: 50px;
+  width: calc(100% - 64px);
   height: 100%;
-  padding: 60px 40px;
-
+  padding: 80px 0;
   overflow: auto;
 
   ::-webkit-scrollbar {
     display: none;
-  }
-
-  > div:first-of-type {
-    flex-shrink: 0;
-  }
-  > div:last-of-type {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-    height: 1px;
   }
 `;

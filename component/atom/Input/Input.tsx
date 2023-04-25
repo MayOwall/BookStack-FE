@@ -6,13 +6,12 @@ import * as S from "./Input.styles";
 function Input({
   type,
   value,
-  onChange,
-  alert,
-  isAlert,
-  width,
-  fontSize,
-  label,
   placeholder,
+  alertLabel,
+  isAlert,
+  label,
+  maxLength,
+  onChange,
 }: IInputProps) {
   const [isFocus, setFocus] = useState(false);
 
@@ -22,22 +21,20 @@ function Input({
 
   return (
     <S.Container>
-      {type === "label" && (
-        <S.Label fontSize={fontSize} isFocus={isFocus}>
-          {label || ""}
-        </S.Label>
-      )}
+      <S.Label>{label}</S.Label>
       <S.Input
+        type={type === "password" ? "password" : "text"}
         value={value}
+        placeholder={placeholder}
         onFocus={onInputFocus}
         onBlur={onInputBlur}
-        onChange={(e) => onChange(e.target.value)}
-        width={width}
-        fontSize={fontSize}
-        placeholder={placeholder}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange(e.target.value)
+        }
+        maxLength={maxLength ? maxLength : 300}
       />
       <S.Line isFocus={isFocus} />
-      <S.Alert isAlert={isAlert}>{alert}</S.Alert>
+      <S.Alert isAlert={isAlert}>{alertLabel}</S.Alert>
     </S.Container>
   );
 }

@@ -4,29 +4,13 @@ import { IStackTemplateProps } from "type";
 
 import * as S from "./StackTemplate.styles";
 
-function StackTemplate({
-  headerData,
-  handleStackType,
-  stackData,
-}: IStackTemplateProps) {
-  const { profileImg, bookCount, pageCount, stackType } = headerData;
+function StackTemplate({ headerData, stackData }: IStackTemplateProps) {
+  const { profileImg, bookCount } = headerData;
 
   return (
     <S.Container>
-      <StackHeader
-        profileImg={profileImg}
-        bookCount={bookCount}
-        pageCount={pageCount}
-        stackType={stackType}
-        handleStackType={handleStackType}
-      />
-      <div>
-        <StackList
-          stackType={stackType}
-          stackData={stackData}
-          onStackClick={(v) => console.log(v)}
-        />
-      </div>
+      <StackHeader profileImg={profileImg} bookCount={bookCount} />
+      <StackList stackData={stackData}/>
     </S.Container>
   );
 }

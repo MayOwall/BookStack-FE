@@ -12,24 +12,18 @@ export default function StackPage() {
   const [stackData, setStackData] =
     useState<{ month: string; stackList: IStackProps[] }[] | null>(null);
 
-  const handleStackType = (v: "stack" | "shelf") => {
-    if (headerData) {
-      const nextHeaderData = {
-        ...headerData,
-        stackType: v,
-      };
-      setHeaderData(() => nextHeaderData);
-    }
-  };
-
   const getStackData = async () => {
     try {
-      const { profileImg, bookCount, pageCount, posts } = await getStack();
+      const data = await getStack();
+      if (data.error) {
+        alert("로그인 만료. 다시 로그인해 주세요");
+        return router.push("/login");
+      }
+
+      const { profileImg, bookCount, posts } = data;
       const nextHeaderData: StackHeaderData = {
         profileImg,
         bookCount,
-        pageCount,
-        stackType: "shelf",
       };
       setStackData(() => posts);
       setHeaderData(() => nextHeaderData);
@@ -44,16 +38,13 @@ export default function StackPage() {
       return router.push("/signin");
     }
     getStackData();
+    return;
   }, []);
 
   return (
     <>
       {!!stackData && !!headerData && (
-        <StackTemplate
-          headerData={headerData}
-          handleStackType={handleStackType}
-          stackData={stackData}
-        />
+        <StackTemplate headerData={headerData} stackData={stackData} />
       )}
     </>
   );

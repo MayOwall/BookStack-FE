@@ -1,54 +1,102 @@
 import { useRouter } from "next/navigation";
-import { useEffect, useRef } from "react";
-import { RoundButton, MonthlyStack } from "component";
+import Image from "next/image";
+import { useState } from "react";
+import { Button } from "component";
+import { StackIcon, ShelfIcon } from "public";
 import { IStackListProps } from "type";
 import * as S from "./StackList.styles";
+import { lightMode as theme } from "style";
 
-function StackList({ stackType, stackData, onStackClick }: IStackListProps) {
+function StackList({ stackData }: IStackListProps) {
+  const [stackType, setStackType] = useState("shelf");
   const router = useRouter();
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  const animation = [{ opacity: 0 }, { opacity: 1 }];
-
-  const options = {
-    duration: 1000,
-    fillMode: "forwards",
+  const handleIcon = (v: "stack" | "shelf") => {
+    stackType !== v && setStackType(() => v);
   };
 
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.animate(animation, options);
-    }
-  }, [stackType]);
+  const handleStackClick = (no: number) => {
+    router.push(`/stack/detail/${no}`);
+  };
 
   return (
     <S.Container>
-      <S.Year>2023</S.Year>
-      <S.ButtonContainer stackType={stackType}>
-        <RoundButton
-          type="fill"
-          onClick={() => {
-            router.push("/stack/create");
-          }}
-          width="100%"
-          height="52px"
-          fontSize="21px"
-        >
-          + Add Book Stack
-        </RoundButton>
-      </S.ButtonContainer>
-      <S.Inner ref={ref}>
-        {stackData.map((stack, i, arr) => (
-          <S.StackContainer key={i} index={arr.length - i - 1}>
-            <MonthlyStack
-              month={stack.month}
-              stackType={stackType}
-              stackList={stack.stackList}
-              onStackClick={onStackClick}
+      <Button
+        buttonType="largeFill"
+        width="100%"
+        onClick={() => router.push("/stack/create")}
+      >
+        + 새 책 생성하기
+      </Button>
+      <S.Stacks>
+        <header>
+          <h3>2023</h3>
+          <S.IconContainer>
+            <ShelfIcon
+              width="20"
+              height="20"
+              stroke={stackType === "shelf" ? theme.color[4] : theme.color[2]}
+              onClick={() => handleIcon("shelf")}
             />
-          </S.StackContainer>
-        ))}
-      </S.Inner>
+            <StackIcon
+              width="20"
+              height="20"
+              stroke={stackType === "stack" ? theme.color[4] : theme.color[2]}
+              onClick={() => handleIcon("stack")}
+            />
+          </S.IconContainer>
+        </header>
+        <S.StackContainer>
+          {stackData.map((stack, i) => {
+            const { month, stackList } = stack;
+            return (
+              <S.Stack key={i}>
+                <h4>{month}</h4>
+                {stackType === "stack" && (
+                  <S.StackBookContainer>
+                    {stackList.map((v) => {
+                      const { title, author, no, date, bookImage } = v;
+                      return (
+                        <S.StackBook
+                          key={no}
+                          className="stackbook"
+                          onClick={() => handleStackClick(no)}
+                        >
+                          <div>
+                            <span>{`# ${no.toString().padStart(3, "0")}`}</span>
+                            <h5>{title}</h5>
+                            <small>{author}</small>
+                            <small>{date}</small>
+                          </div>
+                          {bookImage && (
+                            <S.BookImage>
+                              <Image src={bookImage} fill alt="book image" />
+                            </S.BookImage>
+                          )}
+                        </S.StackBook>
+                      );
+                    })}
+                  </S.StackBookContainer>
+                )}
+                {stackType === "shelf" && (
+                  <S.ShelfBookContainer>
+                    {stackList.map((v) => (
+                      <S.ShelfBook
+                        key={v.no}
+                        onClick={() => handleStackClick(v.no)}
+                      >
+                        {v.bookImage && (
+                          <Image src={v.bookImage} fill alt="book image" />
+                        )}
+                        {!v.bookImage && <span>{v.title}</span>}
+                      </S.ShelfBook>
+                    ))}
+                  </S.ShelfBookContainer>
+                )}
+              </S.Stack>
+            );
+          })}
+        </S.StackContainer>
+      </S.Stacks>
     </S.Container>
   );
 }

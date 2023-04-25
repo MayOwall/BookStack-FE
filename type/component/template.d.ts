@@ -1,5 +1,6 @@
-import { IStackHeaderProps } from "./organsim";
+import { BookInfoData, IStackHeaderProps } from "./organsim";
 import { IStackProps } from "./molecule";
+import { QuoteCardData } from "./molecule";
 interface IValueProps {
   value: string;
   isAlert: boolean;
@@ -16,7 +17,7 @@ interface ISignupTemplateProps {
     type: "id" | "pw" | "pwConfirm" | "nickname",
     value: string
   ) => void;
-  onSubmit: () => void;
+  handleSubmit: () => void;
 }
 
 interface ISigninTemplateProps {
@@ -25,19 +26,52 @@ interface ISigninTemplateProps {
     pw: IValueProps;
   };
   onChange: (type: "id" | "pw", value: string) => void;
-  onSubmit: () => void;
+  handleSubmit: () => void;
 }
 
 interface StackHeaderData {
   profileImg: string;
   bookCount: number;
-  pageCount: number;
-  stackType: "shelf" | "stack";
 }
+
 interface IStackTemplateProps {
   headerData: StackHeaderData;
   stackData: { month: string; stackList: IStackProps[] }[];
-  handleStackType: (v: "stack" | "shelf") => void;
+}
+
+interface IStackDetailTemplateProps {
+  bookInfo: {
+    no: number;
+    title: string;
+    author: string;
+    publisher: string;
+    date: string;
+    detail: string;
+    bookImage: string;
+  };
+  handleQuoteData: (
+    type: "push" | "edit" | "delete",
+    data: QuoteCardData
+  ) => void;
+  quoteCards: JSX.Element;
+  handleBookInfoMeatball: () => void;
+}
+
+interface IStackCreateTemplateProps {
+  bookInfo: {
+    no?: number;
+    title: string;
+    author: string;
+    publisher: string;
+    date: string;
+    detail: string;
+    bookImage: string;
+  };
+  handleBookInfo: (
+    type: "title" | "author" | "publisher" | "date" | "detail" | "bookImage",
+    v: string
+  ) => void;
+  handleSubmit: () => void;
 }
 
 export type {
@@ -45,4 +79,6 @@ export type {
   ISignupTemplateProps,
   ISigninTemplateProps,
   IStackTemplateProps,
+  IStackDetailTemplateProps,
+  IStackCreateTemplateProps,
 };

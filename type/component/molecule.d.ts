@@ -4,7 +4,7 @@ export interface IStackProps {
   title: string;
   author: string;
   date: string;
-  img: string;
+  bookImage: string;
 }
 
 export interface IMonthlyStackProps {
@@ -12,4 +12,22 @@ export interface IMonthlyStackProps {
   stackType: "stack" | "shelf";
   stackList: IStackProps[];
   onStackClick: (id: string) => void;
+}
+
+export interface QuoteCardData {
+  _id: string;
+  date: string;
+  quote: string;
+  page: number;
+  note: string;
+}
+
+export interface IQuoteCardProps {
+  data: QuoteCardData;
+  handleMeatball: (quoteCardId: string) => void;
+}
+
+export interface IQuoteCreateCardProps {
+  handlePush: (newQuoteData: QuoteCardData) => void;
+  handleCancel: () => void;
 }
