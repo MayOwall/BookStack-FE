@@ -1,4 +1,4 @@
-import { EInputProps, ELineProps, EAlertProps } from "type";
+import { ELineProps, EAlertProps } from "type";
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
@@ -11,7 +11,7 @@ export const Label = styled.label`
   font: ${({ theme }) => theme.font["small-bold"]};
 `;
 
-export const Input = styled.input<EInputProps>`
+export const Input = styled.input`
   width: 100%;
   padding: 8px 0;
   font: ${({ theme }) => theme.font["medium-light"]};

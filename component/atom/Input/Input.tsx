@@ -31,7 +31,7 @@ function Input({
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           onChange(e.target.value)
         }
-        maxLength={maxLength || "none"}
+        maxLength={maxLength ? maxLength : 300}
       />
       <S.Line isFocus={isFocus} />
       <S.Alert isAlert={isAlert}>{alertLabel}</S.Alert>

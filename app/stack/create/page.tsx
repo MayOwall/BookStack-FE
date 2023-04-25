@@ -11,6 +11,7 @@ const initBookInfo = {
   publisher: "",
   date: "",
   detail: "",
+  bookImage: "",
 };
 
 export default function Create() {

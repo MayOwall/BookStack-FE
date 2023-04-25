@@ -11,10 +11,10 @@ export const Button = styled.div<EButtonProps>`
   color: ${({ type, color, theme }) => {
     switch (type) {
       case "fill": {
-        return theme.color.white;
+        return theme.color[1];
       }
       default: {
-        return color || theme.color.black;
+        return color || theme.color[4];
       }
     }
   }};
@@ -36,10 +36,10 @@ export const Button = styled.div<EButtonProps>`
     height ? `${Number(height.replace(/[^0-9]/g, "")) / 2}px` : "50%"};
   background-color: ${({ type, color, theme }) => {
     if (type === "fill") {
-      return color || theme.color.black;
+      return color || theme.color[4];
     }
     if (type === "dash" || type === "line") {
-      return theme.color.white;
+      return theme.color[1];
     }
   }};
 
@@ -61,31 +61,31 @@ export const Button = styled.div<EButtonProps>`
     border: ${({ type, color, theme }) => {
       switch (type) {
         case "dash": {
-          return `1px dashed ${color || theme.color.black}dd`;
+          return `1px dashed ${color || theme.color[4]}dd`;
         }
         case "line": {
-          return `1px solid ${color || theme.color.black}dd`;
+          return `1px solid ${color || theme.color[4]}dd`;
         }
       }
     }};
     background-color: ${({ type, color, theme }) => {
       switch (type) {
         case "fill": {
-          return color ? color + "dd" : theme.color.black + "dd";
+          return color ? color + "dd" : theme.color[4] + "dd";
         }
         default: {
-          return theme.color.lightgray + "dd";
+          return theme.color[2] + "dd";
         }
       }
     }};
     color: ${({ type, theme }) => {
       switch (type) {
         case "fill": {
-          return theme.color.white;
+          return theme.color[1];
         }
         case "dash":
         case "line": {
-          return theme.color.black + "dd";
+          return theme.color[4] + "dd";
         }
       }
     }};

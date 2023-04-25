@@ -47,6 +47,7 @@ interface IStackDetailTemplateProps {
     publisher: string;
     date: string;
     detail: string;
+    bookImage: string;
   };
   handleQuoteData: (
     type: "push" | "edit" | "delete",
@@ -64,9 +65,10 @@ interface IStackCreateTemplateProps {
     publisher: string;
     date: string;
     detail: string;
+    bookImage: string;
   };
   handleBookInfo: (
-    type: "title" | "author" | "publisher" | "date" | "detail",
+    type: "title" | "author" | "publisher" | "date" | "detail" | "bookImage",
     v: string
   ) => void;
   handleSubmit: () => void;
