@@ -20,6 +20,7 @@ function BookInfoEditor({ bookInfo, handleBookInfo }: IBookInfoProps) {
   };
 
   const handleBookImageInput = async (e: React.ChangeEvent) => {
+    e.preventDefault();
     const { files } = e.target as HTMLInputElement;
     if (!files) return;
     const file = files[0];
