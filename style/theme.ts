@@ -1,7 +1,9 @@
 import { Theme } from "@emotion/react";
+import { AnySoaRecord } from "dns";
 
-export const darkMode: Theme = {
+export const darkMode: any = {
   color: {
+    0: "#ffffff",
     1: "#212121",
     2: "#5A5A5A",
     3: "#A5A5A5",
@@ -21,16 +23,23 @@ export const darkMode: Theme = {
     "xlarge-bold": "700 24px Noto Sans KR",
     "xxlarge-light": "300 40px Noto Sans KR",
     "xxlarge-bold": "700 40px Noto Sans KR",
+    medium2: "700 1rem Noto Sans KR",
+    medium: "300 1rem Noto Sans KR",
   },
 };
 
 export const lightMode: Theme = {
   color: {
-    1: "#FFFFFF",
-    2: "#A5A5A5",
-    3: "#5A5A5A",
-    4: "#212121",
+    0: "#ffffff",
+    1: "#E2E7EC",
+    2: "#C9CFD8",
+    3: "#9AA4AB",
+    4: "#636971",
+    5: "#363B42",
+    6: "#000000",
     alert: "#FF3131",
+    main: "#7DA9FF",
+    main2: "#2B73FF",
   },
   font: {
     "xsmall-light": "300 12px Noto Sans KR",
@@ -45,5 +54,7 @@ export const lightMode: Theme = {
     "xlarge-bold": "700 24px Noto Sans KR",
     "xxlarge-light": "300 40px Noto Sans KR",
     "xxlarge-bold": "700 40px Noto Sans KR",
+    medium2: "700 16px Noto Sans KR",
+    medium: "300 16px Noto Sans KR",
   },
 };

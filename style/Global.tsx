@@ -14,15 +14,23 @@ const globalStyle = css`
       display: none;
     }
   }
+
   body > div {
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: 450px;
-    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 2;
   }
-  body > div > div {
-    width: 100%;
+
+  @media (max-width: 450px) {
+    body > div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
   }
 `;
 

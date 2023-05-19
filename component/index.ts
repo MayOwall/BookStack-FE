@@ -3,6 +3,7 @@ import Input from "./atom/Input/Input";
 import RoundButton from "./atom/RoundButton/RoundButton";
 import NumericalData from "./atom/NumericalData/NumericalData";
 import Button from "./atom/Button/Button";
+import Button2 from "./atom/Button2/Button";
 
 // molecule
 import MonthlyStack from "./molecule/MonthlyStack/MonthlyStack";
@@ -31,6 +32,7 @@ export {
   Input,
   RoundButton,
   Button,
+  Button2,
   NumericalData,
   MonthlyStack,
   QuoteCard,

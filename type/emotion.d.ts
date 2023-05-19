@@ -15,13 +15,20 @@ declare module "@emotion/react" {
       "xlarge-bold": string;
       "xxlarge-light": string;
       "xxlarge-bold": string;
+      medium2: string;
+      medium: string;
     };
     color: {
+      0: string;
       1: string;
       2: string;
       3: string;
       4: string;
+      5: string;
+      6: string;
       alert: string;
+      main: string;
+      main2: string;
     };
   }
 }

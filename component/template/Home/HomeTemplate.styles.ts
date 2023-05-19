@@ -1,113 +1,51 @@
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/react";
-
-const fadeIn = keyframes`
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  } to {
-    transform: translateY(0);
-    opacity: 100%;
-  }
-`;
-
-const buttonFadeIn = keyframes`
-  from{
-    opacity: 0;
-  }to {
-    opacity: 100%;
-  }
-`;
-
-export const Background = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-
-  width: fit-content;
-  height: fit-content;
 `;
 
-interface ILogo {
-  idx: number;
-}
-
-export const LogoContainer = styled.div`
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  p {
-    font-family: "Noto Sans KR";
-    font-size: 32px;
-    font-weight: 900;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.color[4]};
-    opacity: 0;
-    user-select: none;
-  }
-`;
-
-export const FillLogo = styled.p<ILogo>`
-  color: ${({ theme }) => theme.color[4]};
-  animation: ${fadeIn} 0.6s ease-out forwards;
-  animation-delay: ${({ idx }) => idx}s;
-`;
-
-export const LineLogo = styled.p<ILogo>`
-  color: ${({ theme }) => theme.color[1]};
-  animation: ${fadeIn} 0.6s ease-out forwards;
-  animation-delay: ${({ idx }) => idx * 0.2 + 1}s;
-`;
-
-export const Push = styled.div`
-  opacity: 0;
-  display: flex;
-  animation: ${fadeIn} 0.6s ease-out forwards;
-  animation-delay: 2.8s;
-  p {
-    opacity: 100%;
-    letter-spacing: 4px;
-  }
-  p:first-of-type {
-    color: ${({ theme }) => theme.color[4]};
-  }
-  p:last-of-type {
-    color: ${({ theme }) => theme.color[1]};
-  }
-`;
-export const Own = styled.div`
-  opacity: 0;
-  display: flex;
-  animation: ${fadeIn} 0.6s ease-out forwards;
-  animation-delay: 3s;
-  p {
-    opacity: 100%;
-    letter-spacing: 6px;
-  }
-  p:first-of-type {
-    color: ${({ theme }) => theme.color[1]};
-  }
-  p:last-of-type {
-    color: ${({ theme }) => theme.color[4]};
-  }
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+export const Upper = styled.div`
   width: 100%;
-  opacity: 0;
+  min-height: 300px;
+  padding: 4rem 1rem 0;
+  flex-grow: 1;
+  background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbgUvLb%2FbtsgAUjKWTb%2FbXJxam4sUaSohTEtHD3Me0%2Fimg.png);
+  background-size: cover;
+`;
 
-  animation: ${buttonFadeIn} 0.6s ease-out forwards;
-  animation-delay: 4s;
+export const Header = styled.header`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.color[0]};
+`;
+
+export const Title = styled.h1`
+  font: ${({ theme }) => theme.font.medium2};
+`;
+
+export const LoginBtn = styled.p`
+  font: ${({ theme }) => theme.font.medium};
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+export const Bottom = styled.div`
+  width: 100%;
+  padding: 2rem 1rem 4rem;
+  flex-shrink: 0;
+`;
+
+export const Comment = styled.p`
+  font: 300 2rem "Noto Sans KR";
+  color: ${({ theme }) => theme.color[3]};
+  margin-bottom: 2rem;
+
+  strong {
+    color: ${({ theme }) => theme.color[5]};
+  }
 `;
